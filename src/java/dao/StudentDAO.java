@@ -22,6 +22,7 @@ public class StudentDAO {
 
 
     public List<Student> getAllStudent() {
+        tttt
         List<Student> list = new ArrayList<>();
         String query = "select*from student";
         try {
