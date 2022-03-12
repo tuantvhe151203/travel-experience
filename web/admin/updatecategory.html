@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-   
+    
     <head>
 
         <meta charset="utf-8">
@@ -23,20 +23,6 @@
         <!-- Custom styles for this page -->
         <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <script>
-            function doUpdate(id)
-            {
-                window.location.href = "update-category?cate_id=" + id;
-            }
-            function doDelete(id)
-            {
-                var c = confirm("Bạn có chắc chắn muốn xóa?");
-                if (c)
-                {
-                    window.location.href = "delete-category?cate_id=" + id;
-                }
-            }
-        </script>
     </head>
 
     <body id="page-top">
@@ -44,7 +30,7 @@
         <!-- Page Wrapper -->
         <div id="wrapper">
 
-           <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -90,6 +76,7 @@
          
 
         </ul>
+            <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
@@ -304,48 +291,22 @@
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->
-                    <div class="container-fluid">
+                <div class="container-fluid">
 
-                        <!-- Page Heading -->
-                        <a href="add-category"><button class="btn btn-success" style="margin-bottom: 20px">Thêm Bài Viết</button></a>
-
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Bài Viết</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>STT</th>
-                                                <th>Tiêu Đề</th>
-                                                <th>Nội Dung</th>
-                                            
-                                               <th></th>
-                                               <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th>1</th>
-                                                <th>Đà Nẵng</th>
-                                                <th>Du Lịch</th>
-                                                
-                                                <th><input type="button" class="btn btn-primary" onclick="doUpdate(${categories.id});" value="Update"/></th>
-                                                <th><input type="button" class="btn btn-danger" onclick="doDelete(${categories.id});" value="Delete"/></th>
-                                            </tr>
-                                        </tbody>
-                                          
-                              
-                                    </table>
-                                </div>
-                            </div>
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Thêm danh mục</h1>
+                    <form action="addCategory" method="POST">
+                        <div class="form-group">
+                            <label for="my-input">Tên danh mục</label>
+                            <input id="my-input" placeholder="Nhập tên danh mục.." class="form-control" type="text" name="">
                         </div>
-
-                    </div>
-                    <!-- /.container-fluid -->
+                        <div>
+                            <input class="btn btn-success" type="submit" value="Thêm">
+                            <input class="btn btn-danger" type="submit" value="Hủy">
+                        </div>
+                    </form>
+                </div>
+                <!-- /.container-fluid -->
 
                 </div>
                 <!-- End of Main Content -->
