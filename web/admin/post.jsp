@@ -15,7 +15,7 @@
                 var c = confirm("Bạn có chắc chắn muốn xóa?");
                 if (c)
                 {
-                    window.location.href = "deletepost?post_id=" + id;
+                    window.location.href = "deletepost?id=" + id;
                 }
             }
         </script>

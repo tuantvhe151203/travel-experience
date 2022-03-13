@@ -54,42 +54,7 @@ public class PostDBContext extends DBContext {
         return null;
     }
 
-//    public List<Post> getTop5NewestPost() {
-//        try {
-//            List<Post> list = new ArrayList<>();
-//            String sql = "select top(5) p.*, c.id as cid, c.name, a.id as aid, a.username\n"
-//                    + "                    from Post p inner join Category c\n"
-//                    + "                    on p.cate_id = c.id\n"
-//                    + "                    inner join Account a\n"
-//                    + "                    on p.user_id = a.id\n"
-//                    + "                    where p.active = 1\n"
-//                    + "			   order by created_date desc;";
-//            PreparedStatement ps = connection.prepareStatement(sql);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                Post post = new Post();
-//                post.setId(rs.getInt("id"));
-//                post.setTitle(rs.getString("title"));
-//                post.setContent(rs.getString("content"));
-//                post.setImg_thumnail(rs.getString("img_thumnail"));
-//                post.setCreated_date(rs.getDate("created_date"));
-//                post.setActive(rs.getBoolean("active"));
-//                Category cate = new Category();
-//                cate.setId(rs.getInt("cid"));
-//                cate.setName(rs.getString("name"));
-//                Account account = new Account();
-//                account.setId(rs.getInt("aid"));
-//                account.setUsername(rs.getString("username"));
-//                post.setCate_id(cate);
-//                post.setUser_id(account);
-//                list.add(post);
-//            }
-//            return list;
-//        } catch (Exception e) {
-//            e.printStackTrace(System.out);
-//        }
-//        return null;
-//    }
+
     public Post getPostById(int post_id) {
         try {
             String sql = "select p.*, c.category_id as cid, c.name\n"
@@ -151,234 +116,20 @@ public class PostDBContext extends DBContext {
         return null;
     }
 
-//    public List<Post> getPostByCateIdLimit(int cate_id) {
-//        try {
-//            List<Post> list = new ArrayList<>();
-//            String sql = "select top(5) p.*, c.id as cid, c.name, a.id as aid, a.username\n"
-//                    + "from Post p inner join Category c\n"
-//                    + "on p.cate_id = c.id\n"
-//                    + "inner join Account a\n"
-//                    + "on p.user_id = a.id\n"
-//                    + "where c.id = ? and p.active = 1";
-//            PreparedStatement ps = connection.prepareStatement(sql);
-//            ps.setInt(1, cate_id);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                Post post = new Post();
-//                post.setId(rs.getInt("id"));
-//                post.setTitle(rs.getString("title"));
-//                post.setContent(rs.getString("content"));
-//                post.setImg_thumnail(rs.getString("img_thumnail"));
-//                post.setCreated_date(rs.getDate("created_date"));
-//                post.setActive(rs.getBoolean("active"));
-//                Category cate = new Category();
-//                cate.setId(rs.getInt("cid"));
-//                cate.setName(rs.getString("name"));
-//                Account account = new Account();
-//                account.setId(rs.getInt("aid"));
-//                account.setUsername(rs.getString("username"));
-//                post.setCate_id(cate);
-//                post.setUser_id(account);
-//                list.add(post);
-//            }
-//            return list;
-//        } catch (SQLException e) {
-//            e.printStackTrace(System.out);
-//        }
-//        return null;
-//    }
-//    public List<Post> getPostTop3C1() {
-//        try {
-//            List<Post> list = new ArrayList<>();
-//            String sql = "select top(3) p.*, c.id as cid, c.name, a.id as aid, a.username\n"
-//                    + "from Post p inner join Category c\n"
-//                    + "on p.cate_id = c.id\n"
-//                    + "inner join Account a\n"
-//                    + "on p.user_id = a.id\n"
-//                    + "where c.id = 7 and p.active = 1\n"
-//                    + "order by created_date desc";
-//            PreparedStatement ps = connection.prepareStatement(sql);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                Post post = new Post();
-//                post.setId(rs.getInt("id"));
-//                post.setTitle(rs.getString("title"));
-//                post.setContent(rs.getString("content"));
-//                post.setImg_thumnail(rs.getString("img_thumnail"));
-//                post.setCreated_date(rs.getDate("created_date"));
-//                post.setActive(rs.getBoolean("active"));
-//                Category cate = new Category();
-//                cate.setId(rs.getInt("cid"));
-//                cate.setName(rs.getString("name"));
-//                Account account = new Account();
-//                account.setId(rs.getInt("aid"));
-//                account.setUsername(rs.getString("username"));
-//                post.setCate_id(cate);
-//                post.setUser_id(account);
-//                list.add(post);
-//            }
-//            return list;
-//        } catch (SQLException e) {
-//            e.printStackTrace(System.out);
-//        }
-//        return null;
-//    }
-//    public List<Post> getPostTop3Anh() {
-//        try {
-//            List<Post> list = new ArrayList<>();
-//            String sql = "select top(3) p.*, c.id as cid, c.name, a.id as aid, a.username\n"
-//                    + "from Post p inner join Category c\n"
-//                    + "on p.cate_id = c.id\n"
-//                    + "inner join Account a\n"
-//                    + "on p.user_id = a.id\n"
-//                    + "where c.id = 5 and p.active = 1\n"
-//                    + "order by created_date desc";
-//            PreparedStatement ps = connection.prepareStatement(sql);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                Post post = new Post();
-//                post.setId(rs.getInt("id"));
-//                post.setTitle(rs.getString("title"));
-//                post.setContent(rs.getString("content"));
-//                post.setImg_thumnail(rs.getString("img_thumnail"));
-//                post.setCreated_date(rs.getDate("created_date"));
-//                post.setActive(rs.getBoolean("active"));
-//                Category cate = new Category();
-//                cate.setId(rs.getInt("cid"));
-//                cate.setName(rs.getString("name"));
-//                Account account = new Account();
-//                account.setId(rs.getInt("aid"));
-//                account.setUsername(rs.getString("username"));
-//                post.setCate_id(cate);
-//                post.setUser_id(account);
-//                list.add(post);
-//            }
-//            return list;
-//        } catch (SQLException e) {
-//            e.printStackTrace(System.out);
-//        }
-//        return null;
-//    }
-//    public List<Post> getPostTop3VietNam() {
-//        try {
-//            List<Post> list = new ArrayList<>();
-//            String sql = "select top(3) p.*, c.id as cid, c.name, a.id as aid, a.username\n"
-//                    + "from Post p inner join Category c\n"
-//                    + "on p.cate_id = c.id\n"
-//                    + "inner join Account a\n"
-//                    + "on p.user_id = a.id\n"
-//                    + "where c.id = 4 and p.active = 1\n"
-//                    + "order by created_date desc";
-//            PreparedStatement ps = connection.prepareStatement(sql);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                Post post = new Post();
-//                post.setId(rs.getInt("id"));
-//                post.setTitle(rs.getString("title"));
-//                post.setContent(rs.getString("content"));
-//                post.setImg_thumnail(rs.getString("img_thumnail"));
-//                post.setCreated_date(rs.getDate("created_date"));
-//                post.setActive(rs.getBoolean("active"));
-//                Category cate = new Category();
-//                cate.setId(rs.getInt("cid"));
-//                cate.setName(rs.getString("name"));
-//                Account account = new Account();
-//                account.setId(rs.getInt("aid"));
-//                account.setUsername(rs.getString("username"));
-//                post.setCate_id(cate);
-//                post.setUser_id(account);
-//                list.add(post);
-//            }
-//            return list;
-//        } catch (SQLException e) {
-//            e.printStackTrace(System.out);
-//        }
-//        return null;
-//    }
-//    public List<Post> getPostTop6GiaiDauKhac() {
-//        try {
-//            List<Post> list = new ArrayList<>();
-//            String sql = "select top(6) p.*, c.id as cid, c.name, a.id as aid, a.username\n"
-//                    + "from Post p inner join Category c\n"
-//                    + "on p.cate_id = c.id\n"
-//                    + "inner join Account a\n"
-//                    + "on p.user_id = a.id\n"
-//                    + "where c.id = 9 and p.active = 1\n"
-//                    + "order by created_date desc";
-//
-//            PreparedStatement ps = connection.prepareStatement(sql);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                Post post = new Post();
-//                post.setId(rs.getInt("id"));
-//                post.setTitle(rs.getString("title"));
-//                post.setContent(rs.getString("content"));
-//                post.setImg_thumnail(rs.getString("img_thumnail"));
-//                post.setCreated_date(rs.getDate("created_date"));
-//                post.setActive(rs.getBoolean("active"));
-//                Category cate = new Category();
-//                cate.setId(rs.getInt("cid"));
-//                cate.setName(rs.getString("name"));
-//                Account account = new Account();
-//                account.setId(rs.getInt("aid"));
-//                account.setUsername(rs.getString("username"));
-//                post.setCate_id(cate);
-//                post.setUser_id(account);
-//                list.add(post);
-//            }
-//            return list;
-//        } catch (SQLException e) {
-//            e.printStackTrace(System.out);
-//        }
-//        return null;
-//    }
-//    public List<Post> getPostByKeyTitle(String title) {
-//        try {
-//            List<Post> list = new ArrayList<>();
-//            String sql = "select p.*, c.id as cid, c.name, a.id as aid, a.username\n"
-//                    + "from Post p inner join Category c\n"
-//                    + "on p.cate_id = c.id\n"
-//                    + "inner join Account a\n"
-//                    + "on p.user_id = a.id\n"
-//                    + "where p.active = 1 and title like '%' + ? + '%'";
-//            PreparedStatement ps = connection.prepareStatement(sql);
-//            ps.setString(1, title);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                Post post = new Post();
-//                post.setId(rs.getInt("id"));
-//                post.setTitle(rs.getString("title"));
-//                post.setContent(rs.getString("content"));
-//                post.setImg_thumnail(rs.getString("img_thumnail"));
-//                post.setCreated_date(rs.getDate("created_date"));
-//                post.setActive(rs.getBoolean("active"));
-//                Category cate = new Category();
-//                cate.setId(rs.getInt("cid"));
-//                cate.setName(rs.getString("name"));
-//                Account account = new Account();
-//                account.setId(rs.getInt("aid"));
-//                account.setUsername(rs.getString("username"));
-//                post.setCate_id(cate);
-//                post.setUser_id(account);
-//                list.add(post);
-//            }
-//            return list;
-//        } catch (SQLException e) {
-//            e.printStackTrace(System.out);
-//        }
-//        return null;
-//    }
-    public void addPost(int category_id, String title,
-            String short_new, String images, String content, Date create_date) {
+
+    public void addPost(String title,
+            String short_new, String images, String content, Date create_date,int category_id) {
         try {
-            String sql = "insert into post values(?,?,?,?,?,?)";
+            String sql = "INSERT INTO [Ass_PRJ].[dbo].[post]   ([title]  ,[short_new]    ,[images]    \n"
+                    + "  ,[content]    ,[create_date]     ,[category_id])  \n"
+                    + "   VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, category_id);
-            ps.setString(2, title);
-            ps.setString(3, short_new);
-            ps.setString(4, images);
-            ps.setString(5, content);
-            ps.setDate(6, create_date);
+            ps.setString(1, title);
+            ps.setString(2, short_new);
+            ps.setString(3, images);
+            ps.setString(4, content);
+            ps.setDate(5, create_date);
+            ps.setInt(6, category_id);
 
             ResultSet rs = ps.executeQuery();
         } catch (SQLException e) {
@@ -415,14 +166,16 @@ public class PostDBContext extends DBContext {
 //            e.printStackTrace(System.out);
 //        }
 //    }
-//    public void deletePost(int post_id) {
-//        try {
-//            String sql = "DELETE Post WHERE id = ?";
-//            PreparedStatement stm = connection.prepareStatement(sql);
-//            stm.setInt(1, post_id);
-//            stm.executeUpdate();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CategoryDBContext.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+    public void deletePost(int post_id) {
+        try {
+            String sql = "DELETE Post WHERE post_id = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, post_id);
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoryDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+   
 }

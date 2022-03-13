@@ -5,12 +5,10 @@
  */
 package controller.admin;
 
-import dal.CategoryDBContext;
+
 import dal.PostDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-public class AddPostController extends HttpServlet {
+public class DeletePostController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,20 +30,15 @@ public class AddPostController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+            throws ServletException, IOException{
+          response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AddPostController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AddPostController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+            int post_id = Integer.parseInt(request.getParameter("id"));
+            PostDBContext cdb = new PostDBContext();
+            cdb.deletePost(post_id);
+            response.sendRedirect("post");
+        }    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -60,20 +53,7 @@ public class AddPostController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-      
-        CategoryDBContext cdb = new CategoryDBContext();
-        request.setAttribute("categories", cdb.getAllCategories());
-        
-        java.util.Date currentDate = new java.util.Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        request.setAttribute("create_date", dateFormat.format(currentDate));
-
-        request.getRequestDispatcher("addpost.jsp").forward(request, response);
-        
-        
-         
-    
+        processRequest(request, response);
     }
 
     /**
@@ -87,22 +67,7 @@ public class AddPostController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        request.setCharacterEncoding("UTF-8");
-       
-        String title = request.getParameter("title");
-        String short_new = request.getParameter("short_new");
-        String images = request.getParameter("images");
-        String content = request.getParameter("content");
-        Date create_date = Date.valueOf(request.getParameter("create_date"));
-        int category_id = Integer.parseInt(request.getParameter("category_id"));
-        PostDBContext pdb = new PostDBContext();
-        pdb.addPost(title,short_new,content,images,create_date,category_id);
-        response.sendRedirect("post");
-        
-        
-        
-      
+        processRequest(request, response);
     }
 
     /**

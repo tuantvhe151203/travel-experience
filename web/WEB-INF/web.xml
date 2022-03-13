@@ -12,14 +12,8 @@
         <servlet-name>DeletePost</servlet-name>
         <servlet-class>controller.admin.DeletePost</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>Slider</servlet-name>
-        <servlet-class>controller.admin.Slider</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>UpdateSlider</servlet-name>
-        <servlet-class>controller.admin.UpdateSlider</servlet-class>
-    </servlet>
+
+   
     <servlet>
         <servlet-name>CategoryController</servlet-name>
         <servlet-class>controller.admin.CategoryController</servlet-class>
@@ -44,26 +38,10 @@
         <servlet-name>AddPostController</servlet-name>
         <servlet-class>controller.admin.AddPostController</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>Post</servlet-name>
-        <url-pattern>/Post</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UpdatePost</servlet-name>
-        <url-pattern>/UpdatePost</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeletePost</servlet-name>
-        <url-pattern>/DeletePost</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Slider</servlet-name>
-        <url-pattern>/Slider</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UpdateSlider</servlet-name>
-        <url-pattern>/UpdateSlider</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeletePostController</servlet-name>
+        <servlet-class>controller.admin.DeletePostController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/admin/Category</url-pattern>
@@ -87,6 +65,10 @@
     <servlet-mapping>
         <servlet-name>AddPostController</servlet-name>
         <url-pattern>/admin/addpost</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletePostController</servlet-name>
+        <url-pattern>/admin/deletepost</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
