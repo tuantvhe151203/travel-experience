@@ -70,14 +70,11 @@ public class CategoryDBContext extends DBContext {
         return null;
     }
 
-    public void addCategory(String name) {
+     public void addCategory(String category_name) {
         try {
-                String sql = "INSERT INTO [dbo].[Category]\n"
-                        + "           ([name]\n"
-                        + "     VALUES\n"
-                        + "           ,?)";
+            String sql = "insert into category values(?)";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, name);
+            ps.setString(1, category_name);
             ResultSet rs = ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace(System.out);
@@ -96,9 +93,9 @@ public class CategoryDBContext extends DBContext {
         }
     }
 
-    public void deleteCategory(int category_id) {
+      public void deleteCategory(int category_id) {
         try {
-            String sql = "DELETE category Where category_id = ? ";
+            String sql = "DELETE Category WHERE category_id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, category_id);
             stm.executeUpdate();
@@ -106,4 +103,6 @@ public class CategoryDBContext extends DBContext {
             Logger.getLogger(CategoryDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+   
 }

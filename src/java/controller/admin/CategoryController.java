@@ -38,11 +38,7 @@ public class CategoryController extends HttpServlet {
                 CategoryDBContext cdb = new CategoryDBContext();
                 request.setAttribute("categories", cdb.getAllCategories());
                 request.getRequestDispatcher("category.jsp").forward(request, response);
-//                List<Category> c = cdb.getAllCategories();
-//            for (Category category : c) {
-//                response.getWriter().print(category.getName());
-//            }
-       
+
         }
     }
 

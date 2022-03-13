@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>AddCategory</servlet-name>
-        <servlet-class>controller.admin.AddCategory</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>UpdateCategory</servlet-name>
-        <servlet-class>controller.admin.UpdateCategory</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Post</servlet-name>
         <servlet-class>controller.admin.Post</servlet-class>
     </servlet>
@@ -21,37 +13,29 @@
         <servlet-class>controller.admin.DeletePost</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteCategory</servlet-name>
-        <servlet-class>controller.admin.DeleteCategory</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Slider</servlet-name>
         <servlet-class>controller.admin.Slider</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddSlider</servlet-name>
-        <servlet-class>controller.admin.AddSlider</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdateSlider</servlet-name>
         <servlet-class>controller.admin.UpdateSlider</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteSlide</servlet-name>
-        <servlet-class>controller.admin.DeleteSlide</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CategoryController</servlet-name>
         <servlet-class>controller.admin.CategoryController</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>AddCategory</servlet-name>
-        <url-pattern>/AddCategory</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UpdateCategory</servlet-name>
-        <url-pattern>/UpdateCategory</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddCategoryController</servlet-name>
+        <servlet-class>controller.admin.AddCategoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCategoryController</servlet-name>
+        <servlet-class>controller.admin.DeleteCategoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCategoryController</servlet-name>
+        <servlet-class>controller.admin.UpdateCategoryController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Post</servlet-name>
         <url-pattern>/Post</url-pattern>
@@ -65,32 +49,30 @@
         <url-pattern>/DeletePost</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeleteCategory</servlet-name>
-        <url-pattern>/DeleteCategory</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Slider</servlet-name>
         <url-pattern>/Slider</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddSlider</servlet-name>
-        <url-pattern>/AddSlider</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateSlider</servlet-name>
         <url-pattern>/UpdateSlider</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeleteSlide</servlet-name>
-        <url-pattern>/DeleteSlide</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/admin/Category</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCategoryController</servlet-name>
+        <url-pattern>/admin/addcategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCategoryController</servlet-name>
+        <url-pattern>/admin/deletecategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCategoryController</servlet-name>
+        <url-pattern>/admin/updatecategory</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 </web-app>

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-public class UpdateCategory extends HttpServlet {
+public class UpdateCategoryController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,12 +30,7 @@ public class UpdateCategory extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        request.setCharacterEncoding("UTF-8");
-        int cate_id = Integer.parseInt(request.getParameter("category_id"));
-        CategoryDBContext cdb = new CategoryDBContext();
-        request.setAttribute("category", cdb.getCategoryById(cate_id));
-        request.getRequestDispatcher("updatecategory.jsp").forward(request, response);
+     
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,7 +45,11 @@ public class UpdateCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       request.setCharacterEncoding("UTF-8");
+        int cate_id = Integer.parseInt(request.getParameter("cate_id"));
+        CategoryDBContext cdb = new CategoryDBContext();
+        request.setAttribute("category", cdb.getCategoryById(cate_id));
+        request.getRequestDispatcher("updatecategory.jsp").forward(request, response);
     }
 
     /**
@@ -65,11 +64,11 @@ public class UpdateCategory extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        int cate_id = Integer.parseInt(request.getParameter("category_id"));
-        String cate_name = request.getParameter("name");
+        int cate_id = Integer.parseInt(request.getParameter("cate_id"));
+        String cate_name = request.getParameter("cate_name");
         CategoryDBContext cdb = new CategoryDBContext();
         cdb.updateCategory(cate_id, cate_name);
-        response.sendRedirect("category");
+        response.sendRedirect("Category");
     }
 
     /**

@@ -5,6 +5,7 @@
  */
 package controller.admin;
 
+import dal.CategoryDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-public class UpdatePost extends HttpServlet {
+public class AddCategoryController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +36,10 @@ public class UpdatePost extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UpdatePost</title>");            
+            out.println("<title>Servlet AddCategoryController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet UpdatePost at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AddCategoryController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,7 +57,8 @@ public class UpdatePost extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.setCharacterEncoding("UTF-8");
+        request.getRequestDispatcher("addcategory.jsp").forward(request, response);
     }
 
     /**
@@ -70,7 +72,11 @@ public class UpdatePost extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+           request.setCharacterEncoding("UTF-8");
+        String category_name = request.getParameter("cate_name");
+        CategoryDBContext cdb = new CategoryDBContext();
+        cdb.addCategory(category_name);
+        response.sendRedirect("Category");
     }
 
     /**
