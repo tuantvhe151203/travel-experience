@@ -12,8 +12,6 @@
         <servlet-name>DeletePost</servlet-name>
         <servlet-class>controller.admin.DeletePost</servlet-class>
     </servlet>
-
-   
     <servlet>
         <servlet-name>CategoryController</servlet-name>
         <servlet-class>controller.admin.CategoryController</servlet-class>
@@ -42,6 +40,10 @@
         <servlet-name>DeletePostController</servlet-name>
         <servlet-class>controller.admin.DeletePostController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdatePostController</servlet-name>
+        <servlet-class>controller.admin.UpdatePostController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/admin/Category</url-pattern>
@@ -69,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>DeletePostController</servlet-name>
         <url-pattern>/admin/deletepost</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePostController</servlet-name>
+        <url-pattern>/admin/updatepost</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
