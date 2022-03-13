@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>Category</servlet-name>
-        <servlet-class>controller.admin.Category</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AddCategory</servlet-name>
         <servlet-class>controller.admin.AddCategory</servlet-class>
     </servlet>
@@ -44,10 +40,10 @@
         <servlet-name>DeleteSlide</servlet-name>
         <servlet-class>controller.admin.DeleteSlide</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>Category</servlet-name>
-        <url-pattern>/Category</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>CategoryController</servlet-name>
+        <servlet-class>controller.admin.CategoryController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddCategory</servlet-name>
         <url-pattern>/AddCategory</url-pattern>
@@ -87,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>DeleteSlide</servlet-name>
         <url-pattern>/DeleteSlide</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryController</servlet-name>
+        <url-pattern>/admin/Category</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

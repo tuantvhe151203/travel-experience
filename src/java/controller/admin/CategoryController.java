@@ -8,17 +8,19 @@ package controller.admin;
 import dal.CategoryDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.User;
+import model.Category;
 
 /**
  *
  * @author User
  */
-public class Category extends HttpServlet {
+public class CategoryController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,16 +35,14 @@ public class Category extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            User a = (User) request.getSession().getAttribute("user");
-            if (a == null) {
-                response.sendRedirect("login");
-            } else {
                 CategoryDBContext cdb = new CategoryDBContext();
                 request.setAttribute("categories", cdb.getAllCategories());
-                request.setAttribute("count", 1);
-                request.getSession().setAttribute("account", a);
                 request.getRequestDispatcher("category.jsp").forward(request, response);
-            }
+//                List<Category> c = cdb.getAllCategories();
+//            for (Category category : c) {
+//                response.getWriter().print(category.getName());
+//            }
+       
         }
     }
 

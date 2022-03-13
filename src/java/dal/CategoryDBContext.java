@@ -36,11 +36,11 @@ public class CategoryDBContext extends DBContext {
         return null;
     }
 
-    public Category getCategoryById(int cate_id) {
+    public Category getCategoryById(int category_id) {
         try {
             String sql = "select * from Category where category_id =? ";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, cate_id);
+            ps.setInt(1, category_id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Category category = new Category(
