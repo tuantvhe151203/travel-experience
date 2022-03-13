@@ -14,24 +14,25 @@ import java.sql.Date;
 public class Post {
 
     private int post_id;
+    private Category category_id;
     private String title;
     private String short_new;
     private String images;
     private String content;
     private Date create_date;
-    private Category category_id;
+   
 
     public Post() {
     }
 
-    public Post(int post_id, String title, String short_new, String images, String content, Date create_date, Category category_id) {
+    public Post(int post_id, Category category_id, String title, String short_new, String images, String content, Date create_date) {
         this.post_id = post_id;
+        this.category_id = category_id;
         this.title = title;
         this.short_new = short_new;
         this.images = images;
         this.content = content;
         this.create_date = create_date;
-        this.category_id = category_id;
     }
 
     public int getPost_id() {
@@ -40,6 +41,14 @@ public class Post {
 
     public void setPost_id(int post_id) {
         this.post_id = post_id;
+    }
+
+    public Category getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(Category category_id) {
+        this.category_id = category_id;
     }
 
     public String getTitle() {
@@ -82,13 +91,7 @@ public class Post {
         this.create_date = create_date;
     }
 
-    public Category getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(Category category_id) {
-        this.category_id = category_id;
-    }
+    
 
     
 }

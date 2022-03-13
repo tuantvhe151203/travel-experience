@@ -26,7 +26,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <a href="add-post"><button class="btn btn-success" style="margin-bottom: 20px">Thêm bài viết</button></a>
+        <a href="addpost"><button class="btn btn-success" style="margin-bottom: 20px">Thêm bài viết</button></a>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -38,41 +38,28 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>STT</th>
+                                <th>ID</th>
                                 <th>Tiêu đề</th>
-                                <th>Danh mục</th>S
+                                <th>Tin Ngắn</th>
+                                <th>Danh mục</th>
                                 <th>Ảnh </th>
                               <th>Nội Dung</th>
                                 <th>Ngày tạo</th>
-                                
-                                <th></th>
-                                <th></th>
+                               <th></th>
+                              <th></th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                               <th>STT</th>
-                                <th>Tiêu đề</th>
-                                <th>Danh mục</th>S
-                                <th>Ảnh </th>
-                                <th>Nội Dung</th>
-                                <th>Ngày tạo</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
                         <tbody>
-                          
                             <c:forEach items="${posts}" var="posts">
                                 <tr>
-                                    
+                                    <td>${posts.post_id}</td>
                                     <td>${posts.title}</td>
-                                    <td>${posts.cate_id.name}</td>
                                     <td>${posts.short_new}</td>
+                                    <td>${posts.category_id.name}</td>
+                                      <td><img width="100px" src="${posts.images}"></td>
                                     <td>${posts.content}</td>
-                                    <td><img width="100px" src="${posts.images}"></td>
-                                    <td>${posts.created_date}</td>
-                                    <
+                                     <td>${posts.create_date}</td>
+                                   
                                     <th><input type="button" class="btn btn-primary" onclick="doUpdate(${posts.post_id});" value="Update"/></th>
                                     <th><input type="button" class="btn btn-danger" onclick="doDelete(${posts.post_id});" value="Delete"/></th>
                                 </tr>
