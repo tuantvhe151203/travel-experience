@@ -5,6 +5,7 @@
  */
 package controller.admin;
 
+import dal.CategoryDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,16 +32,16 @@ public class Category extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Category</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Category at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            Account a = (Account) request.getSession().getAttribute("account");
+            if (a == null) {
+                response.sendRedirect("login");
+            } else {
+                CategoryDBContext cdb = new CategoryDBContext();
+                request.setAttribute("categories", cdb.getAllCategories());
+                request.setAttribute("count", 1);
+                request.getSession().setAttribute("account", a);
+                request.getRequestDispatcher("category.jsp").forward(request, response);
+            }
         }
     }
 
