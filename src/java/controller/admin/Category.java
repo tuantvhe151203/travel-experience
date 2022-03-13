@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.User;
 
 /**
  *
@@ -32,7 +33,7 @@ public class Category extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Account a = (Account) request.getSession().getAttribute("account");
+            User a = (User) request.getSession().getAttribute("user");
             if (a == null) {
                 response.sendRedirect("login");
             } else {
