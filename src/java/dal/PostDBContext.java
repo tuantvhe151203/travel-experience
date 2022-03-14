@@ -136,7 +136,7 @@ public class PostDBContext extends DBContext {
         }
     }
 
-    public void updatePost(String title,
+    public void updatePost(int post_id, String title,
             String short_new, String images, String content, Date create_date,int category_id) {
         try {
             String sql = "UPDATE [Post]\n"
@@ -154,6 +154,7 @@ public class PostDBContext extends DBContext {
             ps.setString(4, content);
             ps.setDate(5, create_date);
             ps.setInt(6, category_id);
+             ps.setInt(7, post_id);
             ResultSet rs = ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace(System.out);

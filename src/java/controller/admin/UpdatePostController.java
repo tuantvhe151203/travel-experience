@@ -70,7 +70,7 @@ public class UpdatePostController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        request.setCharacterEncoding("UTF-8");
-       
+        int post_id = Integer.parseInt(request.getParameter("post_id"));
         String title = request.getParameter("title");
         String short_new = request.getParameter("short_new");
         String images = request.getParameter("images");
@@ -78,7 +78,7 @@ public class UpdatePostController extends HttpServlet {
         Date create_date = Date.valueOf(request.getParameter("create_date"));
         int category_id = Integer.parseInt(request.getParameter("category_id"));
         PostDBContext cdb = new PostDBContext();
-        cdb.updatePost(title,short_new,content,images,create_date,category_id);
+        cdb.updatePost(post_id,title,short_new,images,content,create_date,category_id);
         response.sendRedirect("post");
         
         
