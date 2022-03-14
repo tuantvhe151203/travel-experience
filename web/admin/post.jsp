@@ -24,7 +24,7 @@
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
+ 
         <!-- Page Heading -->
         <a href="addpost"><button class="btn btn-success" style="margin-bottom: 20px">Thêm bài viết</button></a>
 
