@@ -53,7 +53,7 @@
                 <input id="my-input" class="form-control" value="${post.create_date}" type="date" name="create_date">
             </div>
              <div class="form-group">
-                Danh mục: <select name="cetagory_id" id="my-input" class="form-control">
+                Danh mục: <select name="category_id" id="my-input" class="form-control">
                     <c:forEach items="${categories}" var="categories">
                         <option
                             <c:if test="${categories.category_id eq post.getCategory_id().getCategory_id()}">
