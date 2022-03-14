@@ -52,19 +52,19 @@
                 <label for="my-input">Ngày tạo</label>
                 <input id="my-input" class="form-control" value="${post.create_date}" type="date" name="create_date">
             </div>
-<<<<<<< HEAD
+
              <div class="form-group">
-=======
+
           
             <div class="form-group">
->>>>>>> parent of 742f0d7 (updated)
+
                 Danh mục: <select name="category_id" id="my-input" class="form-control">
                     <c:forEach items="${categories}" var="categories">
                         <option
-                            <c:if test="${categories.id eq post.category_id.id}">
+                            <c:if test="${categories.getCategory_id() eq post.getCategory_id().getCategory_id()}">
                                 selected="selected"
                             </c:if>
-                            value="${categories.id}">${categories.name}</option>
+                            value="${categories.getCategory_id()}">${categories.name}</option>
                     </c:forEach>
                 </select>
             </div>

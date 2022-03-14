@@ -58,8 +58,7 @@ public class PostDBContext extends DBContext {
     public Post getPostById(int post_id) {
         try {
             String sql = "select p.*, c.category_id as cid, c.name\n"
-                    + " from Post p inner join Category c \n"
-                    + "on p.category_id = c.category_id ";
+                    + "from Post p inner join Category c on p.category_id = c.category_id where  post_id = ? ";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, post_id);
             ResultSet rs = ps.executeQuery();
@@ -88,7 +87,8 @@ public class PostDBContext extends DBContext {
     public List<Post> getPostByCateId(int cate_id) {
         try {
             List<Post> list = new ArrayList<>();
-            String sql = "select *from post";
+            String sql = "select p.*, c.category_id as cid, c.name\n"
+                    + "from Post p inner join Category c on p.category_id = c.category_id where  post_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, cate_id);
             ResultSet rs = ps.executeQuery();

@@ -3,33 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/web/client/index.jsp</file>
             <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/dal/PostDBContext.java</file>
-<<<<<<< HEAD
+            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/web/admin/post.jsp</file>
             <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/model/Post.java</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/controller/client/HomeController.java</file>
             <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/controller/admin/UpdatePostController.java</file>
             <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/model/Category.java</file>
             <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/web/admin/index.html</file>
             <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/web/admin/updatepost.jsp</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/controller/client/PostDetail.java</file>
-=======
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/dal/UserDBContext.java</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/controller/admin/CategoryController.java</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/web/admin/category.jsp</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/web/admin/addcategory.jsp</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/dal/CategoryDBContext.java</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/controller/admin/UpdateCategoryController.java</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/controller/admin/DeleteCategoryController.java</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/web/admin/post.jsp</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/controller/admin/AddCategoryController.java</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/model/Post.java</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/web/WEB-INF/web.xml</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/dal/DBContext.java</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/model/Category.java</file>
             <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/src/java/controller/admin/PostController.java</file>
-            <file>file:/E:/FPT%20University/Spring%202022/PRJ/Project/travel-experience/web/admin/updatecategory.jsp</file>
->>>>>>> parent of 742f0d7 (updated)
         </group>
     </open-files>
 </project-private>
