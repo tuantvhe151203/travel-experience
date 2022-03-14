@@ -44,6 +44,14 @@
         <servlet-name>UpdatePostController</servlet-name>
         <servlet-class>controller.admin.UpdatePostController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>controller.client.HomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PostDetail</servlet-name>
+        <servlet-class>controller.client.PostDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/admin/Category</url-pattern>
@@ -75,6 +83,14 @@
     <servlet-mapping>
         <servlet-name>UpdatePostController</servlet-name>
         <url-pattern>/admin/updatepost</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/client/homecontroller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PostDetail</servlet-name>
+        <url-pattern>/client/postdetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

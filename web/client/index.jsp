@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -40,24 +42,11 @@
 						<div class="container">
 							<div class="main-menu text-center">
 								<ul>
-									<li>
-										<a class="" href="">Trang Chủ</a>
-									</li>
-									<li>
-										<a href="">Tin Tức</a>
-									</li>
-									<li>
-										<a href="">Kinh Nghiệm</a>
-									</li>
-									<li>
-										<a href="">Cẩm Nang</a>
-									</li>
-									<li>
-										<a href="">Nhật Kí</a>
-									</li>
-									<li>
-										<a href="">Liên Hệ </a>
-									</li>
+									 <c:forEach items="${categories}" var="categories">
+                                    <li>
+                                        <a href="danh-muc?category_id=${categories.category_id}">${categories.name}</a>
+                                    </li>
+                                </c:forEach>
 									<li>
 										<div class="search-box">
 											<input type="text" class="search-text" placeholder="Tìm kiếm">
@@ -114,37 +103,20 @@
 							<div class="top-post mt-4">
 								<h2 class="mb-3">BÀI VIẾT</h2>
 								<div class="row">
-									<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
-											<div class="card" >
-											<img src="https://nemtv.vn/wp-content/uploads/2019/07/maxresdefault-6-218x150.jpg" class="card-img-top" alt="...">
-											<div class="card-body">
-												<a href=""><h5 class="card-title">Card title</h5></a>
-												<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
-											<div class="card" >
-											<img src="https://nemtv.vn/wp-content/uploads/2019/07/maxresdefault-6-218x150.jpg" class="card-img-top" alt="...">
-											<div class="card-body">
-												<a href=""><h5 class="card-title">Card title</h5></a>
-												<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
-										<div class="card" >
-											<img src="https://nemtv.vn/wp-content/uploads/2019/07/maxresdefault-6-218x150.jpg" class="card-img-top" alt="...">
-											<div class="card-body">
-												<a href=""><h5 class="card-title">Card title</h5></a>
-												<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-												
-											</div>
-										</div>
-									</div>
 
+<c:forEach items="${getPostTop3BaiViet}" var="getPostTop3BaiViet">
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+				<div class="card" >
+				<img src="${getPostTop3BaiViet.images}" class="card-img-top" alt="...">
+				<div class="card-body">
+				<a href="bai-viet?post_id=${getPostTop3BaiViet.post_id}&&category_id=${getPostTop3BaiViet.category_id.getCategory_id()}"><h5 class="card-title">${getPostTop3BaiViet.title}</h5></a>
+				<p class="card-text">${getPostTop3BaiViet.short_new}</p>
+												
+			    </div>
+				</div>
+				</div>
+		</c:forEach>							
+									
 								</div>
 							</div>	
 							<div class="list-post mt-4">

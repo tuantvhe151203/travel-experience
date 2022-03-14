@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.admin;
+package controller.client;
 
 import dal.CategoryDBContext;
 import dal.PostDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-public class UpdatePostController extends HttpServlet {
+public class PostDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,15 +31,30 @@ public class UpdatePostController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       
-        request.setCharacterEncoding("UTF-8");
-        int post_id = Integer.parseInt(request.getParameter("post_id"));
-        PostDBContext pdb = new PostDBContext();
-        request.setAttribute("post", pdb.getPostById(post_id));
-        CategoryDBContext cdb = new CategoryDBContext();
-        request.setAttribute("categories", cdb.getAllCategories());
-        request.getRequestDispatcher("updatepost.jsp").forward(request, response);
+            throws ServletException, IOException  {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            PostDBContext pdb = new PostDBContext();
+            CategoryDBContext cdb = new CategoryDBContext();
+          
+
+            int category_id = Integer.parseInt(request.getParameter("category_id"));
+            request.setAttribute("PostsByCateId", pdb.getPostByCateId(category_id));
+            int post_id = Integer.parseInt(request.getParameter("post_id"));
+            request.setAttribute("PostById", pdb.getPostById(post_id));
+            request.setAttribute("categories", cdb.getAllCategories());
+            request.setAttribute("cate_name", cdb.getCateNameByCateId(category_id));
+
+            java.util.Date currentDate = new java.util.Date();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            request.setAttribute("current_date", dateFormat.format(currentDate));
+
+            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+            request.setAttribute("current_time", timeFormat.format(currentDate));
+
+            request.getRequestDispatcher("post-detail.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -53,15 +68,8 @@ public class UpdatePostController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
-        request.setCharacterEncoding("UTF-8");
-        int post_id = Integer.parseInt(request.getParameter("post_id"));
-        PostDBContext pdb = new PostDBContext();
-        request.setAttribute("post", pdb.getPostById(post_id));
-       
-        CategoryDBContext cdb = new CategoryDBContext();
-        request.setAttribute("categories", cdb.getAllCategories());
-        request.getRequestDispatcher("updatepost.jsp").forward(request, response);
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**
@@ -75,20 +83,8 @@ public class UpdatePostController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-       int post_id = Integer.parseInt(request.getParameter("post_id"));
-        String title = request.getParameter("title");
-        String short_new = request.getParameter("short_new");
-        String images = request.getParameter("images");
-         String content = request.getParameter("content");
-        Date create_date = Date.valueOf(request.getParameter("create_date"));
-        int category_id = Integer.parseInt(request.getParameter("category_id"));
-         
-        PostDBContext cdb = new PostDBContext();
-        cdb.updatePost( post_id,title, short_new, images,content, create_date, category_id);
-        response.sendRedirect("post");
+        processRequest(request, response);
     }
-
 
     /**
      * Returns a short description of the servlet.
