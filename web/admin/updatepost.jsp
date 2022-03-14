@@ -8,14 +8,14 @@
         <script>
             function doUpdate(id)
             {
-                window.location.href = "updatecategory?cate_id=" + id;
+                window.location.href = "updatecategory?post_id=" + id;
             }
             function doDelete(id)
             {
                 var c = confirm("Bạn có chắc chắn muốn xóa?");
                 if (c)
                 {
-                    window.location.href = "deletecategory?cate_id=" + id;
+                    window.location.href = "deletecategory?id=" + id;
                 }
             }
         </script>
@@ -30,11 +30,11 @@
         <form action="updatepost" method="POST">
             <div class="form-group">
                 <label for="my-input">Mã bài viết</label>
-                <input id="my-input" class="form-control" value="${post.post_id}" type="text" name="post_id"  readonly="">
+                <input id="my-input" class="form-control" value="${post.post_id}" type="text" name="post_id" readonly="">
             </div>
             <div class="form-group">
                 <label for="my-input">Tiêu đề</label>
-                <input id="my-input" class="form-control" value="${post.title}"  type="text" name="title">
+                <input id="my-input" class="form-control" value="${post.title}" type="text" name="title">
             </div>
             <div class="form-group">
                 <label for="my-input">Miêu tả ngắn</label>
@@ -52,19 +52,23 @@
                 <label for="my-input">Ngày tạo</label>
                 <input id="my-input" class="form-control" value="${post.create_date}" type="date" name="create_date">
             </div>
+<<<<<<< HEAD
              <div class="form-group">
+=======
+          
+            <div class="form-group">
+>>>>>>> parent of 742f0d7 (updated)
                 Danh mục: <select name="category_id" id="my-input" class="form-control">
                     <c:forEach items="${categories}" var="categories">
                         <option
-                            <c:if test="${categories.category_id eq post.getCategory_id().getCategory_id()}">
+                            <c:if test="${categories.id eq post.category_id.id}">
                                 selected="selected"
                             </c:if>
-                            value="${categories.category_id}">${categories.name}</option>
+                            value="${categories.id}">${categories.name}</option>
                     </c:forEach>
                 </select>
             </div>
-      
-           
+         
             <div>
                 <input class="btn btn-success" type="submit" value="Cập nhật">
                 <a href="category"><button class="btn btn-danger" value="Hủy">Hủy</button></a>

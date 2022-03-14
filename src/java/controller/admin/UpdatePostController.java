@@ -37,6 +37,7 @@ public class UpdatePostController extends HttpServlet {
         int post_id = Integer.parseInt(request.getParameter("post_id"));
         PostDBContext pdb = new PostDBContext();
         request.setAttribute("post", pdb.getPostById(post_id));
+      
         CategoryDBContext cdb = new CategoryDBContext();
         request.setAttribute("categories", cdb.getAllCategories());
         request.getRequestDispatcher("updatepost.jsp").forward(request, response);
@@ -53,15 +54,8 @@ public class UpdatePostController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
-        request.setCharacterEncoding("UTF-8");
-        int post_id = Integer.parseInt(request.getParameter("post_id"));
-        PostDBContext pdb = new PostDBContext();
-        request.setAttribute("post", pdb.getPostById(post_id));
-       
-        CategoryDBContext cdb = new CategoryDBContext();
-        request.setAttribute("categories", cdb.getAllCategories());
-        request.getRequestDispatcher("updatepost.jsp").forward(request, response);
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**
@@ -75,20 +69,22 @@ public class UpdatePostController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-       int post_id = Integer.parseInt(request.getParameter("post_id"));
+       request.setCharacterEncoding("UTF-8");
+       
         String title = request.getParameter("title");
         String short_new = request.getParameter("short_new");
         String images = request.getParameter("images");
-         String content = request.getParameter("content");
+        String content = request.getParameter("content");
         Date create_date = Date.valueOf(request.getParameter("create_date"));
         int category_id = Integer.parseInt(request.getParameter("category_id"));
-         
         PostDBContext cdb = new PostDBContext();
-        cdb.updatePost( post_id,title, short_new, images,content, create_date, category_id);
+        cdb.updatePost(title,short_new,content,images,create_date,category_id);
         response.sendRedirect("post");
+        
+        
+        
+     
     }
-
 
     /**
      * Returns a short description of the servlet.
