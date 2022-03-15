@@ -47,7 +47,7 @@ public class PostDetail extends HttpServlet {
             request.setAttribute("PostById", pdb.getPostById(post_id));
            
 
-            request.setAttribute("newestPosts", pdb.getTop5NewestPost());
+            request.setAttribute("getTop6NhatKy", pdb.getTop6NhatKy());
             request.setAttribute("categories", cdb.getAllCategories());
 
             request.setAttribute("cate_name", cdb.getCateNameByCateId(cate_id));
@@ -59,7 +59,7 @@ public class PostDetail extends HttpServlet {
             SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
             request.setAttribute("current_time", timeFormat.format(currentDate));
 
-            request.getRequestDispatcher("client/blog-detail.jsp").forward(request, response);
+            request.getRequestDispatcher("post-detail.jsp").forward(request, response);
         }
     }
 

@@ -41,7 +41,7 @@ public class ListPostController extends HttpServlet {
             
             CategoryDBContext cdb = new CategoryDBContext();
             request.setAttribute("categories", cdb.getAllCategories());
-            request.setAttribute("newestPosts", pdb.getTop5NewestPost());
+            request.setAttribute("getTop6NhatKy", pdb.getTop6NhatKy());
             
             request.setAttribute("cate_name", cdb.getCateNameByCateId(cate_id));
             

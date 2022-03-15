@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -25,7 +27,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
 
-                            <a href="">Đăng Nhập/ Tham Gia</a>
+                            <a href="">ÄÄng Nháº­p/ Tham Gia</a>
 
                         </div>
                     </div>
@@ -42,12 +44,12 @@
                                     <ul>
                                         <c:forEach items="${categories}" var="categories">
                                             <li>
-                                                <a href="danh-muc?category_id=${categories.category_id}">${categories.name}</a>
+                                                <a href="danh-muc?getCategory_id()=${categories.getCategory_id()}">${categories.name}</a>
                                             </li>
                                         </c:forEach>
                                         <li>
                                             <div class="search-box">
-                                                <input type="text" class="search-text" placeholder="T�m Ki?m">
+                                                <input type="text" class="search-text" placeholder="Tìm Kiếm">
                                                 <a href="" class="search-btn">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </a>
@@ -98,18 +100,28 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-9">
                                 <div class="top-post mt-4">
-                                    <h2 class="mb-3">Tin T?c</h2>
+                                    <h2 class="mb-3">Tin Tức</h2>
                                     <div class="row">
+                                        <c:choose>
+                                <c:when test="${PostsByCateId != null}">
+                                    <c:forEach items="${PostsByCateId}" var="p">
+                                        
                                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
                                             <div class="card mb-3" >
-                                                <img src="https://nemtv.vn/wp-content/uploads/2019/07/maxresdefault-6-218x150.jpg" class="card-img-top" alt="...">
+                                                <img src="${p.images}" class="card-img-top" alt="...">
                                                 <div class="card-body">
-                                                    <a href=""><h5 class="card-title">Card title</h5></a>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href=""><h5 class="card-title"> ${p.title}</h5></a>
+                                                    <p class="card-text">
+                                                        ${p.short_new}</p>
 
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        
+                                         </c:forEach>
+                                </c:when>
+                            </c:choose>
                                         <div class="list-post mt-4 ">
                                             <nav aria-label="Page navigation example ">
                                                 <ul class="pagination justify-content-center">
@@ -135,23 +147,23 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
                                 <div class="sidebar mt-4">
-                                    <h4 class="mb-4">KINH NGHIỆM DU LỊCH</h4>
+                                    <h4 class="mb-4">KINH NGHIá»M DU Lá»CH</h4>
                                     <div class="card mt-3" style="width: 18rem;">
                                         <img src="https://nemtv.vn/wp-content/uploads/2019/04/can-tho-co-gi-nemtv-10.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <p class="card-text">Cần Thơ gạo trắng nước trong – Ai đi đến đó lòng không muốn về” là câu thơ người ta vẫn thường truyền nhau để ca ngợi miền đất sông nước xinh đẹp hiền hòa.</p>
+                                            <p class="card-text">Cáº§n ThÆ¡ gáº¡o tráº¯ng nÆ°á»c trong â Ai Äi Äáº¿n ÄÃ³ lÃ²ng khÃ´ng muá»n vá»â lÃ  cÃ¢u thÆ¡ ngÆ°á»i ta váº«n thÆ°á»ng truyá»n nhau Äá» ca ngá»£i miá»n Äáº¥t sÃ´ng nÆ°á»c xinh Äáº¹p hiá»n hÃ²a.</p>
                                         </div>
                                     </div>
                                     <div class="card mt-3" style="width: 18rem;">
                                         <img src="https://nemtv.vn/wp-content/uploads/2019/04/can-tho-co-gi-nemtv-10.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <p class="card-text">Cần Thơ gạo trắng nước trong – Ai đi đến đó lòng không muốn về” là câu thơ người ta vẫn thường truyền nhau để ca ngợi miền đất sông nước xinh đẹp hiền hòa.</p>
+                                            <p class="card-text">Cáº§n ThÆ¡ gáº¡o tráº¯ng nÆ°á»c trong â Ai Äi Äáº¿n ÄÃ³ lÃ²ng khÃ´ng muá»n vá»â lÃ  cÃ¢u thÆ¡ ngÆ°á»i ta váº«n thÆ°á»ng truyá»n nhau Äá» ca ngá»£i miá»n Äáº¥t sÃ´ng nÆ°á»c xinh Äáº¹p hiá»n hÃ²a.</p>
                                         </div>
                                     </div>
                                     <div class="card mt-3" style="width: 18rem;">
                                         <img src="https://nemtv.vn/wp-content/uploads/2019/04/can-tho-co-gi-nemtv-10.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <p class="card-text">Cần Thơ gạo trắng nước trong – Ai đi đến đó lòng không muốn về” là câu thơ người ta vẫn thường truyền nhau để ca ngợi miền đất sông nước xinh đẹp hiền hòa.</p>
+                                            <p class="card-text">Cáº§n ThÆ¡ gáº¡o tráº¯ng nÆ°á»c trong â Ai Äi Äáº¿n ÄÃ³ lÃ²ng khÃ´ng muá»n vá»â lÃ  cÃ¢u thÆ¡ ngÆ°á»i ta váº«n thÆ°á»ng truyá»n nhau Äá» ca ngá»£i miá»n Äáº¥t sÃ´ng nÆ°á»c xinh Äáº¹p hiá»n hÃ²a.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -169,23 +181,23 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="box-footer">
-                                <H4>THÔNG TIN LIÊN HỆ</H4>
-                                <p style="text-align: justify">Traveling Life chuyên trang du lịch với rất nhiều dữ liệu về thiên nhiên, văn hóa, ẩm thực của Việt Nam cũng như thế giới. Kết nối cộng đồng du lịch gần nhau hơn. Chia sẻ kiến thức bổ ích cho mỗi độc giả!</p>
+                                <H4>THÃNG TIN LIÃN Há»</H4>
+                                <p style="text-align: justify">Traveling Life chuyÃªn trang du lá»ch vá»i ráº¥t nhiá»u dá»¯ liá»u vá» thiÃªn nhiÃªn, vÄn hÃ³a, áº©m thá»±c cá»§a Viá»t Nam cÅ©ng nhÆ° tháº¿ giá»i. Káº¿t ná»i cá»ng Äá»ng du lá»ch gáº§n nhau hÆ¡n. Chia sáº» kiáº¿n thá»©c bá» Ã­ch cho má»i Äá»c giáº£!</p>
 
 
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="box-footer ">
-                                <H4>ĐỊA CHỈ</H4>
-                                <p><i class="fa-solid fa-address-card"></i> LK11-02, KĐT An Hưng, Tố Hữu, Hà Đông, Hà Nội.</p>
-                                <p>CÔNG TY CỔ PHẦN THƯƠNG MẠI BILLIONS
-                                    Số ĐKKD 0107704947 do Sở Kế hoạch và Đầu tư TP Hà Nội cấp ngày 13 tháng 01 năm 2017.</p>
+                                <H4>Äá»A CHá»</H4>
+                                <p><i class="fa-solid fa-address-card"></i> LK11-02, KÄT An HÆ°ng, Tá» Há»¯u, HÃ  ÄÃ´ng, HÃ  Ná»i.</p>
+                                <p>CÃNG TY Cá» PHáº¦N THÆ¯Æ NG Máº I BILLIONS
+                                    Sá» ÄKKD 0107704947 do Sá» Káº¿ hoáº¡ch vÃ  Äáº§u tÆ° TP HÃ  Ná»i cáº¥p ngÃ y 13 thÃ¡ng 01 nÄm 2017.</p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
-                            <h4>LIÊN HỆ</h4>
-                            <p><i class="fa-solid fa-phone"></i>  Điện Thoại: 036 6644 100</p>
+                            <h4>LIÃN Há»</h4>
+                            <p><i class="fa-solid fa-phone"></i>  Äiá»n Thoáº¡i: 036 6644 100</p>
                             <p><i class="fa-solid fa-envelope-open-text"></i>  Email: Travelinglife@gmail.com</p>
                         </div>
                     </div>

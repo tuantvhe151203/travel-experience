@@ -41,10 +41,12 @@
                         <div class="menu-header">
                             <div class="container">
                                 <div class="main-menu text-center">
+                                    
+                                
                                     <ul>
                                         <c:forEach items="${categories}" var="categories">
                                             <li>
-                                                <a href="danh-muc?category_id=${categories.category_id}">${categories.name}</a>
+                                                <a href="danh-muc?getCategory_id()=${categories.getCategory_id()}">${categories.name}</a>
                                             </li>
                                         </c:forEach>
                                         <li>
@@ -108,7 +110,7 @@
                                                 <div class="card" >
                                                     <img src="${getPostTop3BV.images}" class="card-img-top" alt="...">
                                                     <div class="card-body">
-                                                        <a href="bai-viet?post_id=${getPostTop3BV.category_id}&&category_id=${getPostTop3BV.category_id.category_id}">
+                                                        <a href="bai-viet?getPost_id()=${getPostTop3BV.getCategory_id()}&&getCategory_id()=${getPostTop3BV.getCategory_id().getCategory_id()}">
                                                             <h5 class="card-title">${getPostTop3BV.title}</h5></a>
                                                         <p class="card-text">${getPostTop3BV.short_new}</p>
                                                     </div>

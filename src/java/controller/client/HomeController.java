@@ -38,8 +38,7 @@ public class HomeController extends HttpServlet {
             CategoryDBContext cdb = new CategoryDBContext();
             PostDBContext pdb = new PostDBContext();
             
-//            request.setAttribute("getPostTop6GiaiDauKhac", pdb.getPostTop6GiaiDauKhac());
-//            request.setAttribute("getPostTop3Anh", pdb.getPostTop3Anh());
+
             request.setAttribute("getTop3KinhNGhiem", pdb.getTop3KinhNGhiem());
             request.setAttribute("getTop6NhatKy", pdb.getTop6NhatKy());
             request.setAttribute("getPostTop3BV", pdb.getPostTop3BV());

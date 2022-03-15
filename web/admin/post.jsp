@@ -25,17 +25,17 @@
         <!-- Custom styles for this page -->
         <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <script>
+      <script>
             function doUpdate(id)
             {
-                window.location.href = "updatecategory?cate_id=" + id;
+                window.location.href = "updatepost?post_id=" + id;
             }
             function doDelete(id)
             {
                 var c = confirm("Bạn có chắc chắn muốn xóa?");
                 if (c)
                 {
-                    window.location.href = "deletecategory?cate_id=" + id;
+                    window.location.href = "deletepost?id=" + id;
                 }
             }
         </script>
@@ -53,7 +53,7 @@
 
                     <div class="sidebar-brand-text mx-3">TRAVEL EXPERIENCE</div>
                 </a>
-                <li class="nav-item">
+                 <li class="nav-item" >
                     <a class="nav-link" href="category">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Danh Mục</span></a>
@@ -67,11 +67,30 @@
 
     
                 <li class="nav-item">
+                    <a class="nav-link" href="user">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>User</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tables.html">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Slider</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tables.html">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Bình Luận</span></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="tables.html">
                         <i class="fas fa-fw fa-table"></i>
                         <span>User</span></a>
                 </li>
-               
+                <li class="nav-item">
+                    <a class="nav-link" href="tables.html">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Liên Hệ</span></a>
+                </li>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">

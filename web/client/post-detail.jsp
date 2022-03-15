@@ -27,8 +27,8 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
 
-                            <a href="">ÄÄng Nháº­p/ Tham Gia</a>
-
+                            <a href="">Đăng nhập/ Tham Gia</a>
+ ${cate_name}
                         </div>
                     </div>
 
