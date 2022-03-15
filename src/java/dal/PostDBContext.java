@@ -83,6 +83,131 @@ public class PostDBContext extends DBContext {
         }
         return null;
     }
+    
+       public List<Post> getPostTop3BV() {
+        try {
+            List<Post> list = new ArrayList<>();
+            String sql = "select top(3) p.*, c.category_id as cid, c.name\n" +
+"from Post p inner join Category c on p.category_id = c.category_id \n" +
+"  where c.category_id = 14 order by create_date desc";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+              Post post = new Post();
+                post.setPost_id(rs.getInt("post_id"));
+                post.setTitle(rs.getString("title"));
+                post.setShort_new(rs.getString("short_new"));
+                post.setContent(rs.getString("content"));
+                post.setImages(rs.getString("images"));
+                post.setCreate_date(rs.getDate("create_date"));
+
+                Category cate = new Category();
+                cate.setCategory_id(rs.getInt("cid"));
+                cate.setName(rs.getString("name"));
+
+                post.setCategory_id(cate);
+                list.add(post);
+                
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
+         public List<Post> getTop5NewestPost() {
+        try {
+            List<Post> list = new ArrayList<>();
+            String sql = "select top(5) p.*, c.category_id as cid, c.name\n" +
+"from Post p inner join Category c on p.category_id = c.category_id \n" +
+"  where c.category_id = 14 order by create_date desc";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                  Post post = new Post();
+                post.setPost_id(rs.getInt("post_id"));
+                post.setTitle(rs.getString("title"));
+                post.setShort_new(rs.getString("short_new"));
+                post.setContent(rs.getString("content"));
+                post.setImages(rs.getString("images"));
+                post.setCreate_date(rs.getDate("create_date"));
+
+                Category cate = new Category();
+                cate.setCategory_id(rs.getInt("cid"));
+                cate.setName(rs.getString("name"));
+
+                post.setCategory_id(cate);
+                
+                list.add(post);
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
+            public List<Post> getTop6NhatKy() {
+        try {
+            List<Post> list = new ArrayList<>();
+            String sql = "select top(6) p.*, c.category_id as cid, c.name\n" +
+"from Post p inner join Category c on p.category_id = c.category_id \n" +
+"  where c.category_id = 20 order by create_date desc";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                  Post post = new Post();
+                post.setPost_id(rs.getInt("post_id"));
+                post.setTitle(rs.getString("title"));
+                post.setShort_new(rs.getString("short_new"));
+                post.setContent(rs.getString("content"));
+                post.setImages(rs.getString("images"));
+                post.setCreate_date(rs.getDate("create_date"));
+
+                Category cate = new Category();
+                cate.setCategory_id(rs.getInt("cid"));
+                cate.setName(rs.getString("name"));
+
+                post.setCategory_id(cate);
+                
+                list.add(post);
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
+            public List<Post> getTop3KinhNGhiem() {
+        try {
+            List<Post> list = new ArrayList<>();
+            String sql = "select top(3) p.*, c.category_id as cid, c.name\n" +
+"from Post p inner join Category c on p.category_id = c.category_id \n" +
+"  where c.category_id = 20 order by create_date desc";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                  Post post = new Post();
+                post.setPost_id(rs.getInt("post_id"));
+                post.setTitle(rs.getString("title"));
+                post.setShort_new(rs.getString("short_new"));
+                post.setContent(rs.getString("content"));
+                post.setImages(rs.getString("images"));
+                post.setCreate_date(rs.getDate("create_date"));
+
+                Category cate = new Category();
+                cate.setCategory_id(rs.getInt("cid"));
+                cate.setName(rs.getString("name"));
+
+                post.setCategory_id(cate);
+                
+                list.add(post);
+            }
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
 
     public List<Post> getPostByCateId(int cate_id) {
         try {
