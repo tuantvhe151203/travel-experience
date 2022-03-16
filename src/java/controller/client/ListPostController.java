@@ -10,10 +10,12 @@ import dal.PostDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Post;
 
 /**
  *
@@ -35,9 +37,12 @@ public class ListPostController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            int cate_id = Integer.parseInt(request.getParameter("cate_id"));
+            int cate_id = Integer.parseInt(request.getParameter("category_id"));
             PostDBContext pdb = new PostDBContext();
             request.setAttribute("PostsByCateId", pdb.getPostByCateId(cate_id));
+            request.setAttribute("getTop3KinhNGhiem", pdb.getTop3KinhNGhiem());
+            List<Post> posts = pdb.getPostByCateId(cate_id);
+            request.setAttribute("posts", posts);
             
             CategoryDBContext cdb = new CategoryDBContext();
             request.setAttribute("categories", cdb.getAllCategories());

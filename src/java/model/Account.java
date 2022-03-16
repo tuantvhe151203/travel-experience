@@ -9,25 +9,22 @@ package model;
  *
  * @author User
  */
-public class User {
-    private int user_id;
+public class Account {
+     private int user_id;
     private String username;
     private String password;
     private String email;
-     private String phone;
-     private String address;
-   
-
-    public User() {
+    private String role;
+    
+     public Account() {
     }
 
-    public User(int user_id, String username, String password, String email, String phone,String address) {
+    public Account(int user_id, String username, String password, String email, String role) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.phone = phone;
-         this.address = address;
+        this.role = role;
     }
 
     public int getUser_id() {
@@ -62,20 +59,15 @@ public class User {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getRole() {
+        return role;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-    
+     
 }
+
+

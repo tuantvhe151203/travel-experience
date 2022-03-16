@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
 
-                            <a href="login.html">ÄÄng Nháº­p/ Tham Gia</a>
+                            <a href="login.jsp">Đăng Nhập/ Tham Gia</a>
 
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                                     <ul>
                                         <c:forEach items="${categories}" var="categories">
                                             <li>
-                                                <a href="danh-muc?getCategory_id()=${categories.getCategory_id()}">${categories.name}</a>
+                                                <a href="danh-muc?category_id=${categories.getCategory_id()}">${categories.name}</a>
                                             </li>
                                         </c:forEach>
                                         <li>
@@ -110,8 +110,12 @@
                                                 <div class="card" >
                                                     <img src="${getPostTop3BV.images}" class="card-img-top" alt="...">
                                                     <div class="card-body">
-                                                        <a href="bai-viet?getPost_id()=${getPostTop3BV.getCategory_id()}&&getCategory_id()=${getPostTop3BV.getCategory_id().getCategory_id()}">
-                                                            <h5 class="card-title">${getPostTop3BV.title}</h5></a>
+                                                        <a href="
+                                                           bai-viet?post_id=${getPostTop3BV.post_id}&&cate_id=
+                                                           ${getPostTop3BV.category_id.category_id}
+                                                           ">
+                                                            <h5 class="card-title">${getPostTop3BV.title}</h5>
+                                                        </a>
                                                         <p class="card-text">${getPostTop3BV.short_new}</p>
                                                     </div>
                                                 </div>
@@ -135,7 +139,13 @@
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">
+                                                            
+                                                            <a href="
+                                                           bai-viet?post_id=${getTop6NhatKy.post_id}&&cate_id=
+                                                           ${getTop6NhatKy.category_id.category_id}
+                                                           ">
                                                             <h5 class="card-title">${getTop6NhatKy.title}</h5>
+                                                        </a>
                                                             <p class="card-text">${getTop6NhatKy.short_new}</p>
                                                             <p class="card-text"><small class="text-muted">${getTop6NhatKy.create_date}</small></p>
                                                         </div>
@@ -154,7 +164,12 @@
                                         <div class="card mt-3" style="width: 18rem;">
                                             <img src="${getTop3KinhNGhiem.images}" class="card-img-top" alt="...">
                                             <div class="card-body">
-                                                 <h5 class="card-title">${getTop3KinhNGhiem.title}</h5>
+                                                  <a href="
+                                                           bai-viet?post_id=${getTop3KinhNGhiem.post_id}&&cate_id=
+                                                           ${getTop3KinhNGhiem.category_id.category_id}
+                                                           ">
+                                                            <h5 class="card-title">${getTop3KinhNGhiem.title}</h5>
+                                                        </a>
                                                 <p class="card-text">${getTop3KinhNGhiem.short_new}</p>
                                                   <p class="card-text"><small class="text-muted">${getTop3KinhNGhiem.create_date}</small></p>
                                             </div>

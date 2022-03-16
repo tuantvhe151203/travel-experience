@@ -56,6 +56,10 @@
         <servlet-name>PostDetail</servlet-name>
         <servlet-class>controller.client.PostDetail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginBackEnd</servlet-name>
+        <servlet-class>controller.admin.LoginBackEnd</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/admin/Category</url-pattern>
@@ -99,6 +103,10 @@
     <servlet-mapping>
         <servlet-name>PostDetail</servlet-name>
         <url-pattern>/client/bai-viet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginBackEnd</servlet-name>
+        <url-pattern>/admin/loginbackend</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

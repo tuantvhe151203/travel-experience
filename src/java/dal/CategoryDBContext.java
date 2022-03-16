@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Account;
 import model.Category;
 /**
  *
@@ -103,6 +104,7 @@ public class CategoryDBContext extends DBContext {
             Logger.getLogger(CategoryDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 
    
 }

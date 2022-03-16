@@ -150,13 +150,13 @@ form fieldset a:hover { text-decoration: underline; }
 
 		<h1><strong>Welcome.</strong> Please login.</h1>
 
-		<form action="#" method="get">
+		<form action="../admin/loginbackend" method="post">
 
 			<fieldset>
 
-				<p><input type="text" required value="Username" placeholder="Username"></p>
+				<p><input type="text" required name="username" placeholder="username"></p>
 
-				<p><input type="password" required value="Password" placeholder="Password"></p>
+				<p><input type="text" required name="password" placeholder="password"></p>
 
 				<p><a href="#">Forgot Password?</a></p>
 

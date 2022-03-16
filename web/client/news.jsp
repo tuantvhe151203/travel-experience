@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
 
-                            <a href="">ÄÄng Nháº­p/ Tham Gia</a>
+                            <a href="">Đăng Nhập/ Tham Gia</a>
 
                         </div>
                     </div>
@@ -42,9 +42,12 @@
                             <div class="container">
                                 <div class="main-menu text-center">
                                     <ul>
+                                         <li>
+                                                <a href="trang-chu">Trang Chủ</a>
+                                            </li>
                                         <c:forEach items="${categories}" var="categories">
                                             <li>
-                                                <a href="danh-muc?getCategory_id()=${categories.getCategory_id()}">${categories.name}</a>
+                                                <a href="danh-muc?category_id=${categories.getCategory_id()}">${categories.name}</a>
                                             </li>
                                         </c:forEach>
                                         <li>
@@ -100,25 +103,24 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-9">
                                 <div class="top-post mt-4">
-                                    <h2 class="mb-3">Tin Tức</h2>
+                                    <h2 class="mb-3"> ${cate_name}</h2>
                                     <div class="row">
                                         <c:choose>
-                                <c:when test="${PostsByCateId != null}">
-                                    <c:forEach items="${PostsByCateId}" var="p">
+                                <c:when test="${posts != null}">
+                                    <c:forEach items="${posts}" var="p">
                                         
                                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
                                             <div class="card mb-3" >
                                                 <img src="${p.images}" class="card-img-top" alt="...">
                                                 <div class="card-body">
-                                                    <a href=""><h5 class="card-title"> ${p.title}</h5></a>
+                                                    <a href="bai-viet?post_id=${p.post_id}"><h5 class="card-title"> ${p.title}</h5></a>
                                                     <p class="card-text">
                                                         ${p.short_new}</p>
 
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        
+
                                          </c:forEach>
                                 </c:when>
                             </c:choose>
@@ -147,25 +149,23 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
                                 <div class="sidebar mt-4">
-                                    <h4 class="mb-4">KINH NGHIá»M DU Lá»CH</h4>
-                                    <div class="card mt-3" style="width: 18rem;">
-                                        <img src="https://nemtv.vn/wp-content/uploads/2019/04/can-tho-co-gi-nemtv-10.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="card-text">Cáº§n ThÆ¡ gáº¡o tráº¯ng nÆ°á»c trong â Ai Äi Äáº¿n ÄÃ³ lÃ²ng khÃ´ng muá»n vá»â lÃ  cÃ¢u thÆ¡ ngÆ°á»i ta váº«n thÆ°á»ng truyá»n nhau Äá» ca ngá»£i miá»n Äáº¥t sÃ´ng nÆ°á»c xinh Äáº¹p hiá»n hÃ²a.</p>
+                                    <h4 class="mb-4">Kinh Nghiệm Du Lịch</h4>
+                                     <c:forEach items="${getTop3KinhNGhiem}" var="getTop3KinhNGhiem">
+                                        <div class="card mt-3" style="width: 18rem;">
+                                            <img src="${getTop3KinhNGhiem.images}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                  <a href="
+                                                           bai-viet?post_id=${getTop3KinhNGhiem.post_id}&&cate_id=
+                                                           ${getTop3KinhNGhiem.category_id.category_id}
+                                                           ">
+                                                            <h5 class="card-title">${getTop3KinhNGhiem.title}</h5>
+                                                        </a>
+                                                <p class="card-text">${getTop3KinhNGhiem.short_new}</p>
+                                                  <p class="card-text"><small class="text-muted">${getTop3KinhNGhiem.create_date}</small></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="card mt-3" style="width: 18rem;">
-                                        <img src="https://nemtv.vn/wp-content/uploads/2019/04/can-tho-co-gi-nemtv-10.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="card-text">Cáº§n ThÆ¡ gáº¡o tráº¯ng nÆ°á»c trong â Ai Äi Äáº¿n ÄÃ³ lÃ²ng khÃ´ng muá»n vá»â lÃ  cÃ¢u thÆ¡ ngÆ°á»i ta váº«n thÆ°á»ng truyá»n nhau Äá» ca ngá»£i miá»n Äáº¥t sÃ´ng nÆ°á»c xinh Äáº¹p hiá»n hÃ²a.</p>
-                                        </div>
-                                    </div>
-                                    <div class="card mt-3" style="width: 18rem;">
-                                        <img src="https://nemtv.vn/wp-content/uploads/2019/04/can-tho-co-gi-nemtv-10.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="card-text">Cáº§n ThÆ¡ gáº¡o tráº¯ng nÆ°á»c trong â Ai Äi Äáº¿n ÄÃ³ lÃ²ng khÃ´ng muá»n vá»â lÃ  cÃ¢u thÆ¡ ngÆ°á»i ta váº«n thÆ°á»ng truyá»n nhau Äá» ca ngá»£i miá»n Äáº¥t sÃ´ng nÆ°á»c xinh Äáº¹p hiá»n hÃ²a.</p>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
+                                  
                                 </div>
                                 <div class="banner text-center mt-3"  style="width: 100%">
                                     <img src="https://english.mic.gov.vn/Upload/Store/tintuc/vietnam/7/150-NAM-ITU-web-doc.jpg" alt="">

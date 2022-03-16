@@ -54,7 +54,7 @@
                     <div class="sidebar-brand-text mx-3">TRAVEL EXPERIENCE</div>
                 </a>
                  <li class="nav-item" >
-                    <a class="nav-link" href="category">
+                    <a class="nav-link" href="Category">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Danh Mục</span></a>
                 </li>

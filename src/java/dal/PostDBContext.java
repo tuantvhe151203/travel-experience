@@ -53,6 +53,7 @@ public class PostDBContext extends DBContext {
         }
         return null;
     }
+    
 
     public Post getPostById(int post_id) {
         try {
@@ -215,7 +216,7 @@ public class PostDBContext extends DBContext {
         try {
             List<Post> list = new ArrayList<>();
             String sql = "select p.*, c.category_id as cid, c.name \n"
-                    + " from Post p inner join Category c on p.category_id = c.category_id where  p.post_id = ?";
+                    + " from Post p inner join Category c on p.category_id = c.category_id where  c.category_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, cate_id);
             ResultSet rs = ps.executeQuery();
@@ -296,6 +297,11 @@ public class PostDBContext extends DBContext {
         } catch (SQLException ex) {
             Logger.getLogger(CategoryDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public static void main(String[] args) {
+        PostDBContext db = new PostDBContext();
+        Post pd = db.getPostById(16);
+        System.out.println(pd.getContent());
     }
 
 }

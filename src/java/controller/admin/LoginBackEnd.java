@@ -3,24 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.client;
+package controller.admin;
 
+import dal.AccountDBContext;
 import dal.CategoryDBContext;
-import dal.PostDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Post;
+import javax.servlet.http.HttpSession;
+import model.Account;
 
 /**
  *
  * @author User
  */
-public class PostDetail extends HttpServlet {
+public class LoginBackEnd extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,12 +34,7 @@ public class PostDetail extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-          
-
-        }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -53,33 +49,7 @@ public class PostDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         PostDBContext pdb = new PostDBContext();
-                CategoryDBContext cdb = new CategoryDBContext();
-       
- request.setAttribute("getTop3KinhNGhiem", pdb.getTop3KinhNGhiem());
-            
-            String post_id = request.getParameter("post_id");
-            request.setAttribute("post", pdb.getPostById(Integer.parseInt(post_id)));
-           
-
-          
-            request.setAttribute("categories", cdb.getAllCategories());
-
-          
-
-            java.util.Date currentDate = new java.util.Date();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-            request.setAttribute("current_date", dateFormat.format(currentDate));
-
-            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
-            request.setAttribute("current_time", timeFormat.format(currentDate));
-
-            request.getRequestDispatcher("post-detail.jsp").forward(request, response);
-          
-            
-            
-           
-            
+       response.sendRedirect("../client/login.jsp");
     }
 
     /**
@@ -93,7 +63,23 @@ public class PostDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+//       response.getWriter().print(a);
+           response.setContentType("text/html;charset=UTF-8");
+        
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            AccountDBContext adb = new AccountDBContext();
+           Account account = adb.getAccountByUsernameAndPassword(username, password);
+           if(account!=null){
+                response.sendRedirect("Category");
+           }
+           else{
+              request.getRequestDispatcher("login.jsp").forward(request, response);
+           }
+          
+          
+        
     }
 
     /**

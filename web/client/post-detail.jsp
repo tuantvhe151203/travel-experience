@@ -28,7 +28,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
 
                             <a href="">Đăng nhập/ Tham Gia</a>
- ${cate_name}
+
                         </div>
                     </div>
 
@@ -103,10 +103,10 @@
                                 
                                 <div class="post-detail mt-4">
 
-                                    <h2 class="mb-3"> ${PostById.title}  </h2>
-                                    <p>  ${PostById.short_new}  </p>
-                                     <img src=" ${PostById.images}  " style="width:100%;height: 100%;">
-                                    <h3> ${PostById.content}  </h3>
+                                    <h2 class="mb-3"> ${post.title}  </h2>
+                                    <p>  ${post.short_new}  </p>
+                                     <img src=" ${post.images}  " style="width:100%;height: 100%;">
+                                    <h3> ${post.content}  </h3>
 
                                    
 
@@ -137,7 +137,7 @@
                                             <div class="col-md-8">
                                                 <div class="card-body">
                                                     <h4>Phan Cong Khanh</h4>
-                                                    <p class="card-text">BÃ i Viáº¿t Ráº¥t Tuyá»t Vá»i</p>
+                                                    <p class="card-text">Bai Viet Rat Hay</p>
 
                                                 </div>
                                             </div>
@@ -147,25 +147,23 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
                                 <div class="sidebar mt-4">
-                                    <h4 class="mb-4">KINH NGHIá»M DU Lá»CH</h4>
-                                    <div class="card mt-3" style="width: 18rem;">
-                                        <img src="https://nemtv.vn/wp-content/uploads/2019/04/can-tho-co-gi-nemtv-10.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="card-text">Cáº§n ThÆ¡ gáº¡o tráº¯ng nÆ°á»c trong â Ai Äi Äáº¿n ÄÃ³ lÃ²ng khÃ´ng muá»n vá»â lÃ  cÃ¢u thÆ¡ ngÆ°á»i ta váº«n thÆ°á»ng truyá»n nhau Äá» ca ngá»£i miá»n Äáº¥t sÃ´ng nÆ°á»c xinh Äáº¹p hiá»n hÃ²a.</p>
+                                    <h4 class="mb-4">KINH NGhIỆM DU LỊCH</h4>
+                                <c:forEach items="${getTop3KinhNGhiem}" var="getTop3KinhNGhiem">
+                                        <div class="card mt-3" style="width: 18rem;">
+                                            <img src="${getTop3KinhNGhiem.images}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                  <a href="
+                                                           bai-viet?post_id=${getTop3KinhNGhiem.post_id}&&cate_id=
+                                                           ${getTop3KinhNGhiem.category_id.category_id}
+                                                           ">
+                                                            <h5 class="card-title">${getTop3KinhNGhiem.title}</h5>
+                                                        </a>
+                                                <p class="card-text">${getTop3KinhNGhiem.short_new}</p>
+                                                  <p class="card-text"><small class="text-muted">${getTop3KinhNGhiem.create_date}</small></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="card mt-3" style="width: 18rem;">
-                                        <img src="https://nemtv.vn/wp-content/uploads/2019/04/can-tho-co-gi-nemtv-10.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="card-text">Cáº§n ThÆ¡ gáº¡o tráº¯ng nÆ°á»c trong â Ai Äi Äáº¿n ÄÃ³ lÃ²ng khÃ´ng muá»n vá»â lÃ  cÃ¢u thÆ¡ ngÆ°á»i ta váº«n thÆ°á»ng truyá»n nhau Äá» ca ngá»£i miá»n Äáº¥t sÃ´ng nÆ°á»c xinh Äáº¹p hiá»n hÃ²a.</p>
-                                        </div>
-                                    </div>
-                                    <div class="card mt-3" style="width: 18rem;">
-                                        <img src="https://nemtv.vn/wp-content/uploads/2019/04/can-tho-co-gi-nemtv-10.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="card-text">Cáº§n ThÆ¡ gáº¡o tráº¯ng nÆ°á»c trong â Ai Äi Äáº¿n ÄÃ³ lÃ²ng khÃ´ng muá»n vá»â lÃ  cÃ¢u thÆ¡ ngÆ°á»i ta váº«n thÆ°á»ng truyá»n nhau Äá» ca ngá»£i miá»n Äáº¥t sÃ´ng nÆ°á»c xinh Äáº¹p hiá»n hÃ²a.</p>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
+                                  
                                 </div>	
 
                             </div>
@@ -180,7 +178,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="box-footer">
-                                <H4>THÃNG TIN LIÃN Há»</H4>
+                                <H4>Thông Tin Liên Hệ</H4>
                                 <p style="text-align: justify">Traveling Life chuyÃªn trang du lá»ch vá»i ráº¥t nhiá»u dá»¯ liá»u vá» thiÃªn nhiÃªn, vÄn hÃ³a, áº©m thá»±c cá»§a Viá»t Nam cÅ©ng nhÆ° tháº¿ giá»i. Káº¿t ná»i cá»ng Äá»ng du lá»ch gáº§n nhau hÆ¡n. Chia sáº» kiáº¿n thá»©c bá» Ã­ch cho má»i Äá»c giáº£!</p>
 
 
@@ -188,14 +186,14 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
                             <div class="box-footer ">
-                                <H4>Äá»A CHá»</H4>
+                                <H4>Địa Chỉ</H4>
                                 <p><i class="fa-solid fa-address-card"></i> LK11-02, KÄT An HÆ°ng, Tá» Há»¯u, HÃ  ÄÃ´ng, HÃ  Ná»i.</p>
                                 <p>CÃNG TY Cá» PHáº¦N THÆ¯Æ NG Máº I BILLIONS
                                     Sá» ÄKKD 0107704947 do Sá» Káº¿ hoáº¡ch vÃ  Äáº§u tÆ° TP HÃ  Ná»i cáº¥p ngÃ y 13 thÃ¡ng 01 nÄm 2017.</p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
-                            <h4>LIÃN Há»</h4>
+                            <h4>Liên Hệ</h4>
                             <p><i class="fa-solid fa-phone"></i>  Äiá»n Thoáº¡i: 036 6644 100</p>
                             <p><i class="fa-solid fa-envelope-open-text"></i>  Email: Travelinglife@gmail.com</p>
                         </div>
