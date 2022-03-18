@@ -54,7 +54,7 @@
                     <div class="sidebar-brand-text mx-3">TRAVEL EXPERIENCE</div>
                 </a>
                 <li class="nav-item">
-                    <a class="nav-link" href="category">
+                    <a class="nav-link" href="Category">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Danh Mục</span></a>
                 </li>
@@ -298,7 +298,7 @@
                                         Activity Log
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <a class="dropdown-item" href="../client/trang-chu" >
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout
                                     </a>
@@ -397,7 +397,7 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="trang-chu">Logout</a>
                     </div>
                 </div>
             </div>

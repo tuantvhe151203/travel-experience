@@ -42,6 +42,9 @@
                             <div class="container">
                                 <div class="main-menu text-center">
                                     <ul>
+                                              <li>
+                                                <a href="trang-chu">Trang Chủ</a>
+                                            </li>
                                         <c:forEach items="${categories}" var="categories">
                                             <li>
                                                 <a href="danh-muc?category_id=${categories.category_id}">${categories.name}</a>
@@ -121,11 +124,11 @@
                                         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">BÃ¬nh Luáº­n</label>
+                                        <label for="exampleFormControlTextarea1" class="form-label">Bình Luận</label>
                                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                     </div>
                                     <div class="col-auto">
-                                        <button type="submit" class="btn btn-primary mb-3">Viáº¿t BÃ¬nh Luáº­n</button>
+                                        <button type="submit" class="btn btn-primary mb-3">Viết Bình Luận</button>
                                     </div>
                                 </div>
                                 <div class="comment-detail">

@@ -41,9 +41,12 @@
                         <div class="menu-header">
                             <div class="container">
                                 <div class="main-menu text-center">
-                                    
+                                      
                                 
                                     <ul>
+                                        <li>
+                                                <a href="trang-chu">Trang Chủ</a>
+                                            </li>
                                         <c:forEach items="${categories}" var="categories">
                                             <li>
                                                 <a href="danh-muc?category_id=${categories.getCategory_id()}">${categories.name}</a>
