@@ -328,11 +328,11 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Tiêu đề</th>
-                                <th>Tin Ngắn</th>
+                                
                                 <th>Danh mục</th>
-                                <th>Ảnh </th>
-                              <th>Nội Dung</th>
-                                <th>Ngày tạo</th>
+                               
+                             
+                              
                                <th></th>
                               <th></th>
                             </tr>
@@ -342,11 +342,11 @@
                                 <tr>
                                     <td>${posts.post_id}</td>
                                     <td>${posts.title}</td>
-                                    <td>${posts.short_new}</td>
+                                   
                                     <td>${posts.category_id.name}</td>
-                                      <td><img width="100px" src="${posts.images}"></td>
-                                    <td>${posts.content}</td>
-                                     <td>${posts.create_date}</td>
+                                      
+                                   
+                                   
                                    
                                     <th><input type="button" class="btn btn-primary" onclick="doUpdate(${posts.post_id});" value="Update"/></th>
                                     <th><input type="button" class="btn btn-danger" onclick="doDelete(${posts.post_id});" value="Delete"/></th>

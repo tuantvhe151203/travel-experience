@@ -326,16 +326,16 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>STT</th>
-                                                <th>Ten Danh Muc</th>
+                                                <th>Tên Danh Mục</th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>STT</th>
-                                                <th>Name</th>
+                                                <th></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                             </tr>
