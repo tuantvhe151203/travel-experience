@@ -7,6 +7,7 @@ package controller.client;
 
 import dal.CategoryDBContext;
 import dal.PostDBContext;
+import dal.SlideDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -37,12 +38,14 @@ public class HomeController extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             CategoryDBContext cdb = new CategoryDBContext();
             PostDBContext pdb = new PostDBContext();
+               SlideDBContext adb= new SlideDBContext();
             
-
+               
             request.setAttribute("getTop3KinhNGhiem", pdb.getTop3KinhNGhiem());
             request.setAttribute("getTop6NhatKy", pdb.getTop6NhatKy());
             request.setAttribute("getPostTop3BV", pdb.getPostTop3BV());
             request.setAttribute("categories", cdb.getAllCategories());
+                request.setAttribute("getAllSlide", adb.getAllSlide());
 
             java.util.Date currentDate = new java.util.Date();
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

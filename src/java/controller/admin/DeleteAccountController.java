@@ -6,7 +6,6 @@
 package controller.admin;
 
 import dal.AccountDBContext;
-import dal.CategoryDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-public class AccountController extends HttpServlet {
+public class DeleteAccountController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,11 +33,10 @@ public class AccountController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            int user_id = Integer.parseInt(request.getParameter("user_id"));
             AccountDBContext adb = new AccountDBContext();
-            request.setAttribute("accounts", adb.getAllAccounts());
-            request.setAttribute("count", 1);
-            
-            request.getRequestDispatcher("account.jsp").forward(request, response);
+            adb.deleteAccount(user_id);
+            response.sendRedirect("account");
         }
     }
 

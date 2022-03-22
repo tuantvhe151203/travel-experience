@@ -5,8 +5,8 @@
  */
 package controller.admin;
 
-import dal.AccountDBContext;
-import dal.CategoryDBContext;
+
+import dal.SlideDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-public class AccountController extends HttpServlet {
+public class SlideController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,11 +34,11 @@ public class AccountController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            AccountDBContext adb = new AccountDBContext();
-            request.setAttribute("accounts", adb.getAllAccounts());
-            request.setAttribute("count", 1);
+            SlideDBContext adb = new SlideDBContext();
+            request.setAttribute("slides", adb.getAllSlide());
+            request.setAttribute("slide", 1);
             
-            request.getRequestDispatcher("account.jsp").forward(request, response);
+            request.getRequestDispatcher("slide.jsp").forward(request, response);
         }
     }
 

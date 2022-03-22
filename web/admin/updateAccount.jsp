@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Slider</title>
+        <title>Update Account</title>
 
         <!-- Custom fonts for this template -->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,20 +25,7 @@
         <!-- Custom styles for this page -->
         <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-      <script>
-            function doUpdate(id)
-            {
-                window.location.href = "updatepost?post_id=" + id;
-            }
-            function doDelete(id)
-            {
-                var c = confirm("Bạn có chắc chắn muốn xóa?");
-                if (c)
-                {
-                    window.location.href = "deletepost?id=" + id;
-                }
-            }
-        </script>
+    
     </head>
 
     <body id="page-top">
@@ -53,7 +40,7 @@
 
                     <div class="sidebar-brand-text mx-3">TRAVEL EXPERIENCE</div>
                 </a>
-                 <li class="nav-item" >
+                <li class="nav-item">
                     <a class="nav-link" href="Category">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Danh Mục</span></a>
@@ -66,7 +53,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="slide">
+                    <a class="nav-link" href="tables.html">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Slider</span></a>
                 </li>
@@ -81,7 +68,7 @@
                         <span>Account</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="contact">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Liên Hệ</span></a>
                 </li>
@@ -278,7 +265,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${username}</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                     <img class="img-profile rounded-circle"
                                          src="img/undraw_profile.svg">
                                 </a>
@@ -297,7 +284,7 @@
                                         <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Activity Log
                                     </a>
-                                    <div class="dropdown-divider" ></div>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="../client/trang-chu" >
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout
@@ -310,54 +297,39 @@
                     </nav>
                     <!-- End of Topbar -->
 
-                   <!-- Begin Page Content -->
+                    <!-- Begin Page Content -->
+                  <!-- Begin Page Content -->
+  <!-- Begin Page Content -->
     <div class="container-fluid">
- 
+
         <!-- Page Heading -->
-        <a href="addpost"><button class="btn btn-success" style="margin-bottom: 20px">Thêm bài viết</button></a>
-
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Bài viết</h6>
+        <h1 class="h3 mb-4 text-gray-800">Cập nhật tài khoản</h1>
+        <form action="update-account" method="POST">
+            <div class="form-group">
+                <label for="my-input">Mã tài khoản</label>
+                <input id="my-input" class="form-control" readonly="" value="${account.user_id}" type="text" name="user_id">
             </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th style="text-align: center">ID</th>
-                                <th style="text-align: center">Tiêu đề</th>
-                                
-                                <th style="text-align: center">Danh mục</th>
-                               
-                             
-                              
-                               <th></th>
-                              <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${posts}" var="posts">
-                                <tr>
-                                    <td style="text-align: center">${posts.post_id}</td>
-                                    <td style="text-align: center">${posts.title}</td>
-                                   
-                                    <td style="text-align: center">${posts.category_id.name}</td>
-                                      
-                                   
-                                   
-                                   
-                                    <th><input type="button" class="btn btn-primary" onclick="doUpdate(${posts.post_id});" value="Update"/></th>
-                                    <th><input type="button" class="btn btn-danger" onclick="doDelete(${posts.post_id});" value="Delete"/></th>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="form-group">
+                <label for="my-input">Username</label>
+                <input id="my-input" class="form-control" value="${account.username}" type="text" name="username">
             </div>
-        </div>
-
+            <div class="form-group">
+                <label for="my-input">Password</label>
+                <input id="my-input" class="form-control" value="${account.password}" type="text" name="password">
+            </div>
+            <div class="form-group">
+                <label for="my-input">Email</label>
+                <input id="my-input" class="form-control" value="${account.email}" type="text" name="email">
+            </div>
+           <div class="form-group">
+                <label for="my-input">Chức Vụ</label>
+                <input id="my-input" class="form-control" value="${account.role}" type="text" name="role">
+            </div>
+            <div>
+                <input class="btn btn-success" type="submit" value="Thêm">
+                <a href="account"><button class="btn btn-danger" value="Hủy">Hủy</button></a>
+            </div>
+        </form>
     </div>
     <!-- /.container-fluid -->
                 </div>
@@ -398,7 +370,7 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="trang-chu">Logout</a>
                     </div>
                 </div>
             </div>

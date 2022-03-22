@@ -64,6 +64,34 @@
         <servlet-name>AccountController</servlet-name>
         <servlet-class>controller.admin.AccountController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddAccountController</servlet-name>
+        <servlet-class>controller.admin.AddAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAccountController</servlet-name>
+        <servlet-class>controller.admin.DeleteAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAccountController</servlet-name>
+        <servlet-class>controller.admin.UpdateAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SlideController</servlet-name>
+        <servlet-class>controller.admin.SlideController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateSlideController</servlet-name>
+        <servlet-class>controller.admin.UpdateSlideController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddSlideController</servlet-name>
+        <servlet-class>controller.admin.AddSlideController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteSlideController</servlet-name>
+        <servlet-class>controller.admin.DeleteSlideController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/admin/Category</url-pattern>
@@ -115,6 +143,34 @@
     <servlet-mapping>
         <servlet-name>AccountController</servlet-name>
         <url-pattern>/admin/account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAccountController</servlet-name>
+        <url-pattern>/admin/add-account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccountController</servlet-name>
+        <url-pattern>/admin/delete-account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAccountController</servlet-name>
+        <url-pattern>/admin/update-account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SlideController</servlet-name>
+        <url-pattern>/admin/slide</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateSlideController</servlet-name>
+        <url-pattern>/admin/update-slide</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddSlideController</servlet-name>
+        <url-pattern>/admin/add-slide</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteSlideController</servlet-name>
+        <url-pattern>/admin/delete-slide</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

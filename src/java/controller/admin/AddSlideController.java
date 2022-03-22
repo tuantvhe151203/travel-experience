@@ -5,8 +5,8 @@
  */
 package controller.admin;
 
-import dal.AccountDBContext;
-import dal.CategoryDBContext;
+
+import dal.SlideDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-public class AccountController extends HttpServlet {
+public class AddSlideController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,11 +34,15 @@ public class AccountController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            AccountDBContext adb = new AccountDBContext();
-            request.setAttribute("accounts", adb.getAllAccounts());
-            request.setAttribute("count", 1);
-            
-            request.getRequestDispatcher("account.jsp").forward(request, response);
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet AddSlideController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet AddSlideController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -54,9 +58,9 @@ public class AccountController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       SlideDBContext adb = new SlideDBContext();
+        request.getRequestDispatcher("addSlide.jsp").forward(request, response);
     }
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -68,7 +72,11 @@ public class AccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String images = request.getParameter("images");
+       
+        SlideDBContext adb = new SlideDBContext();
+        adb.addSlide(images);
+        response.sendRedirect("slide");
     }
 
     /**

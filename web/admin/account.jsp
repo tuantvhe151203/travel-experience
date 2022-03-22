@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Slider</title>
+        <title>Account</title>
 
         <!-- Custom fonts for this template -->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,17 +25,17 @@
         <!-- Custom styles for this page -->
         <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <script>
+      <script>
             function doUpdate(id)
             {
-                window.location.href = "updateaccount?user_id=" + id;
+                window.location.href = "update-account?user_id=" + id;
             }
             function doDelete(id)
             {
                 var c = confirm("Bạn có chắc chắn muốn xóa?");
                 if (c)
                 {
-                    window.location.href = "deleteaccount?user_id=" + id;
+                    window.location.href = "delete-account?user_id=" + id;
                 }
             }
         </script>
@@ -66,7 +66,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="slide">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Slider</span></a>
                 </li>
@@ -76,9 +76,9 @@
                         <span>Bình Luận</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="account">
                         <i class="fas fa-fw fa-table"></i>
-                        <span>User</span></a>
+                        <span>Account</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="tables.html">
@@ -311,57 +311,58 @@
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->
-                    <div class="container-fluid">
+                  <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-                        <!-- Page Heading -->
-                        <a href="addaccount"><button class="btn btn-success" style="margin-bottom: 20px">Thêm Tài Khoản</button></a>
+        <!-- Page Heading -->
+        <a href="add-account"><button class="btn btn-success" style="margin-bottom: 20px">Thêm tài khoản</button></a>
 
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Tài Khoản</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr >
-                                                <th style="width: 20px; text-align: center">ID</th>
-                                                <th style=" text-align: center" >username</th>
-                                                <th style="width: 50px">Email</th>
-                                                <th style="width: 50px">Role</th>
-                                               
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th></th>
-                                                <th></th>
-                                                <th style="width: 50px"></th>
-                                                <th style="width: 50px"></th>
-                                             
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Tài khoản</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style=" text-align: center">Username</th>
+                                <th style=" text-align: center">Email</th>
+                                <th style=" width: 50px"></th>
+                                <th style=" width: 50px"></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+     
+                                <th></th>
+                                <th></th>
+                             
+                                <th style=" width: 50px"></th>
+                                <th style=" width: 50px"></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                           
+                            <c:forEach items="${accounts}" var="accounts">
+                                <tr>
+                                   
+                                    <td style=" text-align: center">${accounts.username}</td>
+                                    <td style=" text-align: center">${accounts.email}</td>
+                                 
+                                    <th><input type="button" class="btn btn-primary" onclick="doUpdate(${accounts.user_id});" value="Update"/></th>
+                                    <th><input type="button" class="btn btn-danger" onclick="doDelete(${accounts.user_id});" value="Delete"/></th>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-                                            <c:forEach items="${accounts}" var="accounts">
-                                                <tr>
-                                                <td style=" text-align: center">${accounts.user_id}</td>
-                                                    <td style=" text-align: center">${accounts.username}</td>
-                                                     <td style=" text-align: center">${accounts.email}</td>
-                                                       <td style=" text-align: center">${accounts.role}</td>
-                                                    <th style="width: 50px; text-align: center"><input type="button" class="btn btn-primary" onclick="doUpdate(${accounts.user_id});" value="Update"/></th>
-                                                    <th style="width: 50px; text-align: center"><input type="button"  class="btn btn-danger" onclick="doDelete(${accounts.user_id});" value="Delete"/></th>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- /.container-fluid -->
+    </div>
+    <!-- /.container-fluid -->
 
                 </div>
                 <!-- End of Main Content -->

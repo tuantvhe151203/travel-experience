@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
-    
+
     <head>
 
         <meta charset="utf-8">
@@ -9,7 +11,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Category</title>
+        <title>Update Slide</title>
 
         <!-- Custom fonts for this template -->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,6 +25,7 @@
         <!-- Custom styles for this page -->
         <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
     </head>
 
     <body id="page-top">
@@ -30,53 +33,57 @@
         <!-- Page Wrapper -->
         <div id="wrapper">
 
-             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-               
-                <div class="sidebar-brand-text mx-3">TRAVEL EXPERIENCE</div>
-            </a>
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Danh Mục</span></a>
-            </li>
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
 
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Bài Viết</span></a>
-            </li>
+                    <div class="sidebar-brand-text mx-3">TRAVEL EXPERIENCE</div>
+                </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="Category">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Danh Mục</span></a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Slider</span></a>
-            </li>
-              <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Bình Luận</span></a>
-            </li>
-               <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Liên Hệ</span></a>
-            </li>
+                <li class="nav-item" >
+                    <a class="nav-link" href="post">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Bài Viết</span></a>
+                </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+                <li class="nav-item">
+                    <a class="nav-link" href="slide">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Slider</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tables.html">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Bình Luận</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="account">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Account</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Liên Hệ</span></a>
+                </li>
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
 
-         
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
 
-        </ul>
-            <!-- End of Sidebar -->
+
+
+            </ul>
 
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
@@ -278,7 +285,7 @@
                                         Activity Log
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <a class="dropdown-item" href="../client/trang-chu" >
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout
                                     </a>
@@ -291,27 +298,29 @@
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->
-                <div class="container-fluid">
+                  <!-- Begin Page Content -->
+  <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Thêm Slider</h1>
-                    <form action="addCategory" method="POST">
-                        <div class="form-group">
-                            <label for="my-input">Chọn ảnh</label>
-                            <input type="file" id="my-input"  class="form-control" type="text" name="">
-                        </div>
-                         <div class="form-group">
-                            <label for="my-input">Vị trí ảnh</label>
-                            <input id="my-input"  class="form-control" type="text" name="">
-                        </div>
-                        <div>
-                            <input class="btn btn-success" type="submit" value="Thêm">
-                            <input class="btn btn-danger" type="submit" value="Hủy">
-                        </div>
-                    </form>
-                </div>
-                <!-- /.container-fluid -->
-
+        <!-- Page Heading -->
+        <h1 class="h3 mb-4 text-gray-800">Cập nhật slider</h1>
+        <form action="update-slide" method="POST">
+            <div class="form-group">
+                <label for="my-input">ID</label>
+                <input id="my-input" class="form-control" readonly="" value="${slides.slider_id}" type="text" name="slider_id">
+            </div>
+            <div class="form-group">
+                <label for="my-input">Images</label>
+                <input id="my-input" class="form-control" value="${slides.images}" type="text" name="images">
+            </div>
+          
+            <div>
+                <input class="btn btn-success" type="submit" value="Thêm">
+                <a href="account"><button class="btn btn-danger" value="Hủy">Hủy</button></a>
+            </div>
+        </form>
+    </div>
+    <!-- /.container-fluid -->
                 </div>
                 <!-- End of Main Content -->
 
@@ -350,7 +359,7 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="trang-chu">Logout</a>
                     </div>
                 </div>
             </div>

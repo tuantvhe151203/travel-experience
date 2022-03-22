@@ -6,7 +6,6 @@
 package controller.admin;
 
 import dal.AccountDBContext;
-import dal.CategoryDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-public class AccountController extends HttpServlet {
+public class UpdateAccountController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,11 +33,15 @@ public class AccountController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            AccountDBContext adb = new AccountDBContext();
-            request.setAttribute("accounts", adb.getAllAccounts());
-            request.setAttribute("count", 1);
-            
-            request.getRequestDispatcher("account.jsp").forward(request, response);
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet UpdateAccountController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet UpdateAccountController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -53,10 +56,15 @@ public class AccountController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+            throws ServletException, IOException{
+        request.setCharacterEncoding("UTF-8");
+        AccountDBContext adb = new AccountDBContext();
+       
 
+        int user_id = Integer.parseInt(request.getParameter("user_id"));
+        request.setAttribute("account", adb.getAccountById(user_id));
+        request.getRequestDispatcher("updateAccount.jsp").forward(request, response);
+    }
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -68,9 +76,17 @@ public class AccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+        request.setCharacterEncoding("UTF-8");
+        int user_id = Integer.parseInt(request.getParameter("user_id"));
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+        int role = Integer.parseInt(request.getParameter("role"));
 
+        AccountDBContext adb = new AccountDBContext();
+        adb.updateAccount(user_id, username, password, email, role);
+        response.sendRedirect("account");
+    }
     /**
      * Returns a short description of the servlet.
      *
