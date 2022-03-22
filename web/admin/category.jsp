@@ -76,9 +76,9 @@
                         <span>Bình Luận</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="account">
                         <i class="fas fa-fw fa-table"></i>
-                        <span>User</span></a>
+                        <span>Account</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="tables.html">
@@ -325,29 +325,31 @@
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
-                                            <tr>
-                                                <th>Tên Danh Mục</th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
+                                            <tr >
+                                                <th style="width: 20px; text-align: center">ID</th>
+                                                <th style=" text-align: center" >Tên Danh Mục</th>
+                                                <th style="width: 50px"></th>
+                                                <th style="width: 50px"></th>
+                                               
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
                                                 <th></th>
                                                 <th></th>
-                                                <th></th>
-                                                <th></th>
+                                                <th style="width: 50px"></th>
+                                                <th style="width: 50px"></th>
+                                             
                                             </tr>
                                         </tfoot>
                                         <tbody>
 
                                             <c:forEach items="${categories}" var="categories">
                                                 <tr>
-
-                                                    <td>${categories.name}</td>
-                                                    <th><input type="button" class="btn btn-primary" onclick="doUpdate(${categories.category_id});" value="Update"/></th>
-                                                    <th><input type="button"  class="btn btn-danger" onclick="doDelete(${categories.category_id});" value="Delete"/></th>
+                                                <td style=" text-align: center">${categories.category_id}</td>
+                                                    <td style=" text-align: center">${categories.name}</td>
+                                                    <th style="width: 50px; text-align: center"><input type="button" class="btn btn-primary" onclick="doUpdate(${categories.category_id});" value="Update"/></th>
+                                                    <th style="width: 50px; text-align: center"><input type="button"  class="btn btn-danger" onclick="doDelete(${categories.category_id});" value="Delete"/></th>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

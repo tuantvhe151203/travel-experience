@@ -25,17 +25,17 @@
         <!-- Custom styles for this page -->
         <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-      <script>
+        <script>
             function doUpdate(id)
             {
-                window.location.href = "updatepost?post_id=" + id;
+                window.location.href = "updateaccount?user_id=" + id;
             }
             function doDelete(id)
             {
                 var c = confirm("Bạn có chắc chắn muốn xóa?");
                 if (c)
                 {
-                    window.location.href = "deletepost?id=" + id;
+                    window.location.href = "deleteaccount?user_id=" + id;
                 }
             }
         </script>
@@ -53,7 +53,7 @@
 
                     <div class="sidebar-brand-text mx-3">TRAVEL EXPERIENCE</div>
                 </a>
-                 <li class="nav-item" >
+                <li class="nav-item">
                     <a class="nav-link" href="Category">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Danh Mục</span></a>
@@ -76,9 +76,9 @@
                         <span>Bình Luận</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="account">
+                    <a class="nav-link" href="tables.html">
                         <i class="fas fa-fw fa-table"></i>
-                        <span>Account</span></a>
+                        <span>User</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="tables.html">
@@ -278,7 +278,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${username}</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                     <img class="img-profile rounded-circle"
                                          src="img/undraw_profile.svg">
                                 </a>
@@ -297,7 +297,7 @@
                                         <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Activity Log
                                     </a>
-                                    <div class="dropdown-divider" ></div>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="../client/trang-chu" >
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout
@@ -310,56 +310,59 @@
                     </nav>
                     <!-- End of Topbar -->
 
-                   <!-- Begin Page Content -->
-    <div class="container-fluid">
- 
-        <!-- Page Heading -->
-        <a href="addpost"><button class="btn btn-success" style="margin-bottom: 20px">Thêm bài viết</button></a>
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
 
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Bài viết</h6>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th style="text-align: center">ID</th>
-                                <th style="text-align: center">Tiêu đề</th>
-                                
-                                <th style="text-align: center">Danh mục</th>
-                               
-                             
-                              
-                               <th></th>
-                              <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${posts}" var="posts">
-                                <tr>
-                                    <td style="text-align: center">${posts.post_id}</td>
-                                    <td style="text-align: center">${posts.title}</td>
-                                   
-                                    <td style="text-align: center">${posts.category_id.name}</td>
-                                      
-                                   
-                                   
-                                   
-                                    <th><input type="button" class="btn btn-primary" onclick="doUpdate(${posts.post_id});" value="Update"/></th>
-                                    <th><input type="button" class="btn btn-danger" onclick="doDelete(${posts.post_id});" value="Delete"/></th>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                        <!-- Page Heading -->
+                        <a href="addaccount"><button class="btn btn-success" style="margin-bottom: 20px">Thêm Tài Khoản</button></a>
 
-    </div>
-    <!-- /.container-fluid -->
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Tài Khoản</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr >
+                                                <th style="width: 20px; text-align: center">ID</th>
+                                                <th style=" text-align: center" >username</th>
+                                                <th style="width: 50px">Email</th>
+                                                <th style="width: 50px">Role</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th style="width: 50px"></th>
+                                                <th style="width: 50px"></th>
+                                             
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+
+                                            <c:forEach items="${accounts}" var="accounts">
+                                                <tr>
+                                                <td style=" text-align: center">${accounts.user_id}</td>
+                                                    <td style=" text-align: center">${accounts.username}</td>
+                                                     <td style=" text-align: center">${accounts.email}</td>
+                                                       <td style=" text-align: center">${accounts.role}</td>
+                                                    <th style="width: 50px; text-align: center"><input type="button" class="btn btn-primary" onclick="doUpdate(${accounts.user_id});" value="Update"/></th>
+                                                    <th style="width: 50px; text-align: center"><input type="button"  class="btn btn-danger" onclick="doDelete(${accounts.user_id});" value="Delete"/></th>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.container-fluid -->
+
                 </div>
                 <!-- End of Main Content -->
 
@@ -398,7 +401,7 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="trang-chu">Logout</a>
                     </div>
                 </div>
             </div>

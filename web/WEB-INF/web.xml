@@ -60,6 +60,10 @@
         <servlet-name>LoginBackEnd</servlet-name>
         <servlet-class>controller.admin.LoginBackEnd</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AccountController</servlet-name>
+        <servlet-class>controller.admin.AccountController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/admin/Category</url-pattern>
@@ -107,6 +111,10 @@
     <servlet-mapping>
         <servlet-name>LoginBackEnd</servlet-name>
         <url-pattern>/admin/loginbackend</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountController</servlet-name>
+        <url-pattern>/admin/account</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
