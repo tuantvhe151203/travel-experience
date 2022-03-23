@@ -25,8 +25,54 @@
         <!-- Custom styles for this page -->
         <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    
+
     </head>
+    <script>
+        function validateForm() {
+            //collect form data in JavaScript variables  
+            var pw1 = document.getElementById("pswd1").value;
+            var pw2 = document.getElementById("pswd2").value;
+            var name1 = document.getElementById("fname").value;
+
+            if (name1 == "") {
+                document.getElementById("blankMsg").innerHTML = "**Vui lòng điền thông tin";
+                return false;
+            }
+            //check empty password field  
+            if (pw1 == "") {
+                document.getElementById("message1").innerHTML = "**Vui lòng điền mật khẩu";
+                return false;
+            }
+
+            //check empty confirm password field  
+            if (pw2 == "") {
+                document.getElementById("message2").innerHTML = "**Enter the password please!";
+                return false;
+            }
+
+//            //minimum password length validation  
+//            if (pw1.length < 8) {
+//                document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
+//                return false;
+//            }
+//
+//            //maximum length of password validation  
+//            if (pw1.length > 15) {
+//                document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+//                return false;
+//            }
+
+            if (pw1 != pw2) {
+                document.getElementById("message2").innerHTML = "**Mật khẩu không khớp";
+                return false;
+            }
+// else {
+//                alert("Your password created successfully");
+//                document.write("JavaScript form has been submitted successfully");
+//            }
+        }
+    </script>  
+
 
     <body id="page-top">
 
@@ -298,40 +344,44 @@
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->
-                  <!-- Begin Page Content -->
-  <!-- Begin Page Content -->
-    <div class="container-fluid">
+                    <!-- Begin Page Content -->
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800">Cập nhật tài khoản</h1>
-        <form action="update-account" method="POST">
-            <div class="form-group">
-                <label for="my-input">Mã tài khoản</label>
-                <input id="my-input" class="form-control" readonly="" value="${account.user_id}" type="text" name="user_id">
-            </div>
-            <div class="form-group">
-                <label for="my-input">Username</label>
-                <input id="my-input" class="form-control" value="${account.username}" type="text" name="username">
-            </div>
-            <div class="form-group">
-                <label for="my-input">Password</label>
-                <input id="my-input" class="form-control" value="${account.password}" type="text" name="password">
-            </div>
-            <div class="form-group">
-                <label for="my-input">Email</label>
-                <input id="my-input" class="form-control" value="${account.email}" type="text" name="email">
-            </div>
-           <div class="form-group">
-                <label for="my-input">Chức Vụ</label>
-                <input id="my-input" class="form-control" value="${account.role}" type="text" name="role">
-            </div>
-            <div>
-                <input class="btn btn-success" type="submit" value="Thêm">
-                <a href="account"><button class="btn btn-danger" value="Hủy">Hủy</button></a>
-            </div>
-        </form>
-    </div>
-    <!-- /.container-fluid -->
+                        <!-- Page Heading -->
+                        <h1 class="h3 mb-4 text-gray-800">Cập nhật tài khoản</h1>
+                        <form onsubmit ="return validateForm()" action="update-account" method="POST">
+                            <div class="form-group">
+                                <label for="my-input">Mã tài khoản</label>
+                                <input  class="form-control" readonly="" value="${account.user_id}" type="text" name="user_id">
+                            </div>
+                            <div class="form-group">
+                                <label for="my-input">Username</label>
+                                <input id = "fname"  class="form-control" value="${account.username}" type="text" name="username">
+                                <span id = "blankMsg" style="color:red"> </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="my-input">Password</label>
+                                <input id = "pswd1" class="form-control" value="${account.password}" type="text" name="password">
+                                <span id = "message1" style="color:red"> </span>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="my-input">Email</label>
+                                <input  class="form-control" value="${account.email}" type="text" name="email">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="my-input">Chức Vụ</label>
+                                <input class="form-control" value="${account.role}" type="text" name="role">
+                            </div>
+                            <div>
+                                <input class="btn btn-success" type="submit" value="Cập nhật">
+                                <a href="account"><button class="btn btn-danger" value="Hủy">Hủy</button></a>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.container-fluid -->
                 </div>
                 <!-- End of Main Content -->
 

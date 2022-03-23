@@ -123,6 +123,9 @@
 
                                          </c:forEach>
                                 </c:when>
+                                    
+                                
+                                
                             </c:choose>
                                         <div class="list-post mt-4 ">
                                             <nav aria-label="Page navigation example ">
@@ -165,7 +168,24 @@
                                             </div>
                                         </div>
                                     </c:forEach>
-                                  
+                                      <c:when test="${PostsByKeyTitle != null}">
+                                     <c:forEach items="${PostsByKeyTitle}"var="PostsByKeyTitle">
+                                        
+                                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                                            <div class="card mb-3" >
+                                                <img src="${PostsByKeyTitle.images}" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <a href="bai-viet?post_id=${PostsByKeyTitle.post_id}"><h5 class="card-title"> ${PostsByKeyTitle.title}</h5></a>
+                                                    <p class="card-text">
+                                                        ${PostsByKeyTitle.short_new}</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                         </c:forEach>
+                                      </c:when>
+                                   
                                 </div>
                                 <div class="banner text-center mt-3"  style="width: 100%">
                                     <img src="https://english.mic.gov.vn/Upload/Store/tintuc/vietnam/7/150-NAM-ITU-web-doc.jpg" alt="">

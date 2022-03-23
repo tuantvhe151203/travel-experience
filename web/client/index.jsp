@@ -52,13 +52,16 @@
                                                 <a href="danh-muc?category_id=${categories.getCategory_id()}">${categories.name}</a>
                                             </li>
                                         </c:forEach>
+                                    
                                         <li>
-                                            <div class="search-box">
-                                                <input type="text" class="search-text" placeholder="Tìm Kiếm">
-                                                <a href="" class="search-btn">
+                                            <form action="tim-kiem" method="GET">
+                                            <div class="search-box" >
+                                                <input type="text" class="search-text" name="keyword" placeholder="Tìm Kiếm">
+                                                <a href="" type="submit" class="search-btn">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </a>
                                             </div>
+                                                </form>
                                         </li>
 
                                     </ul>

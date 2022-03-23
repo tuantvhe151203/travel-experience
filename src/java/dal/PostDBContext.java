@@ -53,7 +53,6 @@ public class PostDBContext extends DBContext {
         }
         return null;
     }
-    
 
     public Post getPostById(int post_id) {
         try {
@@ -288,6 +287,38 @@ public class PostDBContext extends DBContext {
         }
     }
 
+    public List<Post> getPostByKeyTitle(String title) {
+        try {
+            List<Post> list = new ArrayList<>();
+            String sql = "select p.*, c.category_id as cid, c.name \n"
+                    + "from Post p inner join Category c \n"
+                    + "on p.category_id = c.category_id \n"
+                    + "where title like ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, title);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Post post = new Post();
+                post.setPost_id(rs.getInt("post_id"));
+                post.setTitle(rs.getString("title"));
+                post.setShort_new(rs.getString("short_new"));
+                post.setContent(rs.getString("content"));
+                post.setImages(rs.getString("images"));
+                post.setCreate_date(rs.getDate("create_date"));
+                Category cate = new Category();
+                cate.setCategory_id(rs.getInt("cid"));
+                cate.setName(rs.getString("name"));
+
+                post.setCategory_id(cate);
+                list.add(post);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
+
     public void deletePost(int post_id) {
         try {
             String sql = "DELETE Post WHERE post_id = ?";
@@ -298,6 +329,7 @@ public class PostDBContext extends DBContext {
             Logger.getLogger(CategoryDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public static void main(String[] args) {
         PostDBContext db = new PostDBContext();
         Post pd = db.getPostById(16);
